@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Logan Bashore</title>
+    <title>Services | Logan Bashore</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            text-align: center;
         }
 
         header {
@@ -86,43 +85,15 @@
             background-color: #e0e0e0;
         }
 
-        .about-section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+        .services-section {
             padding: 100px 20px;
+            text-align: center;
             flex: 1;
             min-height: 70vh;
-            margin-top: 80px;
-        }
-
-        .about-section img {
-            width: 300px;
-            height: 600px;
-            margin-right: 30px;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        .about-text {
-            text-align: center;
-            max-width: 800px;
-        }
-
-        .about-section h1 {
-            font-size: 3.5em;
-            margin-top: 20px;
-        }
-
-        .about-section p {
-            font-size: 1.3em;
-            color: #B0BEC5;
-            margin: 20px auto;
-            line-height: 1.6;
         }
 
         footer {
-            background-color: #232628;
+            background-color: #232628; /* New footer background color */
             color: #e0e0e0;
             padding: 50px 58px;
             display: flex;
@@ -178,20 +149,15 @@
         <div class="logo">Logan Bashore</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
+            <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
         </div>
     </header>
 
-    <div class="about-section">
-        <img src="lbawakgn.png" alt="Logan Bashore Image">
-        <div class="about-text">
-            <h1>About Logan Bashore</h1>
-            <p>Logan Bashore is a percussionist and composer from Florida, currently a senior at Tarpon Springs High School. He is a member of the Tarpon Springs Leadership Conservatory for the Arts, where he has served as the center snare and drumline section leader for the Tarpon Springs Outdoor Performance Ensemble. Logan is also an active participant in the TSLCA Wind Ensemble and has previously performed with the TSLCA Wind Symphony, as well as with the TSLCA Jazz Ensemble as a pianist. His diverse musical background and leadership roles showcase his commitment and passion for the arts.</p>
-
-            <p>In addition to his performance experience, Logan is passionate about the marching arts and works as a freelance percussion composer and arranger on Fiverr. He aspires to write for high school programs and drum corps, with plans to perform with a corps in the future.</p>
-        </div>
+    <div class="services-section">
+        <h1>Services</h1>
+        <p>Discover the various services I offer as a percussionist, composer, and arranger. Whether you're looking for custom compositions or drumline arrangements, I have the experience and expertise to help.</p>
     </div>
 
     <footer>
@@ -211,7 +177,6 @@
     </footer>
 
     <script>
-        // Header shrink on scroll
         window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
             const logo = document.querySelector('.logo');
@@ -225,7 +190,6 @@
             }
         });
 
-        // Active tab underline effect
         const links = document.querySelectorAll('header .nav-links a');
         links.forEach(link => {
             if (link.href === window.location.href) {
