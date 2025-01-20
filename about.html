@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Logan Bashore</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            background-color: rgba(18, 18, 18, 0.9);
+            color: #e0e0e0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(18, 18, 18, 1); /* Solid black when scrolled */
+            padding: 15px 20px; /* Shrink header size when scrolled */
+        }
+
+        .logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #e0e0e0;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #B0BEC5;
+        }
+
+        .about-section {
+            padding: 120px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .about-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-section p + p {
+            margin-top: 20px; /* Add space between the 1st and 2nd paragraph */
+        }
+
+        footer {
+            background-color: #2f2f2f; /* Highlight color */
+            color: #e0e0e0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0; /* Ensures no space below footer */
+            width: 100%;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        footer .social-links img {
+            width: 30px;
+            height: 30px;
+        }
+
+        footer .name {
+            font-size: 1.2em;
+        }
+
+        footer .email a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        footer .email a:hover {
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Logan Bashore</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h1>About Logan Bashore</h1>
+        <p>Logan Bashore is a percussionist and composer from Florida, currently a senior at Tarpon Springs High School. He is a member of the Tarpon Springs Leadership Conservatory for the Arts, where he has served as the center snare and drumline section leader for the Tarpon Springs Outdoor Performance Ensemble. Logan is also an active participant in the TSLCA Wind Ensemble and has previously performed with the TSLCA Wind Symphony, as well as with the TSLCA Jazz Ensemble as a pianist. His diverse musical background and leadership roles showcase his commitment and passion for the arts.</p>
+
+        <p>In addition to his performance experience, Logan is passionate about the marching arts and works as a freelance percussion composer and arranger on Fiverr. He aspires to write for high school programs and drum corps, with plans to perform with a corps in the future.</p>
+    </section>
+
+    <footer>
+        <div class="name">Logan Bashore</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@loganbashore" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+        </div>
+        <p class="email"><a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    </footer>
+
+    <script>
+        // Detect scroll event to apply header shrinking effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
+

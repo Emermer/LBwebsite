@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Logan Bashore</title>
+
+    <!-- FontAwesome CDN link for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow-x: hidden; /* Fixes extra space on the right */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full screen height */
+        }
+
+        header {
+            background: #000; /* Fixed black background */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 20px 8px;
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+            display: flex;
+            justify-content: center; /* Center the content */
+            align-items: center;
+        }
+
+        header.scrolled {
+            padding: 10px 8px; /* Reduced padding when scrolling */
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+            transition: font-size 0.3s ease-in-out; /* Smooth font size transition */
+            position: absolute; /* Position the logo absolutely */
+            left: 20px; /* Keeps the logo on the left */
+        }
+
+        header .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-grow: 1; /* Ensures the navigation links are centered */
+        }
+
+        header .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        header .nav-links a:hover {
+            color: #B0BEC5;
+        }
+
+        /* Make home section taller */
+        .home-section {
+            padding: 100px 20px; /* Increased padding for taller section */
+            text-align: left;
+            flex: 1;
+            min-height: 70vh; /* Increased height */
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+        }
+
+        .home-section .media-text {
+            font-size: 3.5em;
+            margin-top: 8%;
+            position: relative;
+            left: 15%;
+        }
+
+        .home-section .media-subtext {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #B0BEC5;
+            position: relative;
+            left: 15%;
+        }
+
+        footer {
+            background-color: #2f2f2f;
+            color: #e0e0e0;
+            padding: 50px 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 0;
+            width: 100%;
+        }
+
+        footer .email {
+            padding: 0px 300px; /* Added padding for centering text */
+            text-align: right;
+        }
+
+	footer .name {
+		padding: 0px 300px;
+		text-align: left;
+	}
+
+        footer .social-links {
+            display: flex;
+            justify-content: center; /* Center social icons */
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.8em; /* Adjust the size of the icons */
+            color: #e0e0e0; /* Icon color */
+        }
+
+        footer .social-links a:hover {
+            color: #B0BEC5; /* Icon hover color */
+        }
+
+        footer .email a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        footer .email a:hover {
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Logo on the left -->
+        <div class="logo">Logan Bashore</div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <div class="home-section">
+        <div class="media-text">Logan Bashore</div>
+        <div class="media-subtext">Percussionist | Composer</div>
+    </div>
+
+    <footer>
+        <div class="name">Logan Bashore</div>
+        <div class="social-links">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@loganbashore" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Detect scroll event to apply header shrinking effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            const logo = document.querySelector('.logo');
+
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+                logo.style.fontSize = '1.4em'; // Shrink the logo font size on scroll
+            } else {
+                header.classList.remove('scrolled');
+                logo.style.fontSize = '1.8em'; // Default logo font size
+            }
+        });
+    </script>
+
+</body>
+</html>
+
