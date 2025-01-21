@@ -93,7 +93,7 @@
         }
 
         footer {
-            background-color: #232628; /* New footer background color */
+            background-color: #232628;
             color: #e0e0e0;
             padding: 50px 58px;
             display: flex;
@@ -140,6 +140,35 @@
         footer .email a:hover {
             color: #B0BEC5;
         }
+
+        /* Modern Button Styling */
+        .email-button {
+            background-color: #e0e0e0;
+            color: #121212;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .email-button:hover {
+            background-color: #B0BEC5;
+            color: #fff;
+        }
+
+        .email-button:active {
+            transform: translateY(2px);
+        }
+
+        /* Add some spacing for the icon */
+        .email-button i {
+            margin-right: 10px;
+        }
     </style>
 </head>
 
@@ -157,7 +186,13 @@
 
     <div class="contact-section">
         <h1>Contact Me</h1>
-        <p>If you would like to get in touch or collaborate on a project, feel free to reach out. You can contact me via email or through my social media accounts.</p>
+        <p>If you would like to get in touch, feel free to reach out! You can contact me via email (loganbashore13@gmail.com) or through my social media accounts.</p>
+        <!-- Email button with icon -->
+        <a href="mailto:loganbashore13@gmail.com">
+            <button class="email-button">
+                <i class="fas fa-envelope"></i> Send Me an Email
+            </button>
+        </a>
     </div>
 
     <footer>
