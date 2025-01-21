@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Logan Bashore</title>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -211,7 +209,6 @@
     </footer>
 
     <script>
-        // Header shrink on scroll
         window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
             const logo = document.querySelector('.logo');
@@ -225,7 +222,6 @@
             }
         });
 
-        // Active tab underline effect
         const links = document.querySelectorAll('header .nav-links a');
         links.forEach(link => {
             if (link.href === window.location.href) {
