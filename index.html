@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Logan Bashore</title>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -101,7 +99,7 @@
             font-size: 3.5em;
             margin-top: 8%;
             position: relative;
-            left: 5%;
+            left: 15%;
         }
 
         .home-section .media-subtext {
@@ -109,7 +107,7 @@
             margin-top: 0;
             color: #B0BEC5;
             position: relative;
-            left: 5%;
+            left: 15%;
         }
 
         footer {
@@ -162,51 +160,34 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                height: 70px;
+                padding: 10px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
             header .logo {
-                font-size: 1.8em;
+                font-size: 1.4em;
             }
 
             header .nav-links {
-                flex-direction: column;
-                gap: 15px;
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background: rgba(0, 0, 0, 0.7);
                 display: none;
-                justify-content: flex-start;
-                padding: 20px 0;
-                margin: 0;
-                z-index: 99;
-                border-top: 2px solid #fff;
-            }
-
-            header .nav-links a {
-                font-size: 1.5em;
+                flex-direction: column;
                 padding: 15px;
-            }
-
-            header .nav-links a:hover {
-                color: #B0BEC5;
-            }
-
-            header .hamburger {
-                display: block;
-                font-size: 2.5em;
-                cursor: pointer;
-                color: #fff;
-                z-index: 110;
-                position: absolute;
-                right: 15px;
-                top: 20px;
             }
 
             .home-section .media-text {
                 font-size: 2.5em;
                 margin-top: 15%;
                 position: relative;
-                left: 0;
+                left: 5%;
                 text-align: left;
             }
 
@@ -214,88 +195,63 @@
                 font-size: 1.2em;
                 margin-top: 0;
                 position: relative;
-                left: 0;
+                left: 5%;
                 text-align: left;
             }
 
-            footer {
-                flex-direction: column;
-                padding: 30px 20px;
+            .menu-button {
+                display: block;
+                background-color: #333;
+                color: #fff;
+                font-size: 1.2em;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                z-index: 101;
             }
 
-            footer .name, footer .email {
-                padding: 0;
-                text-align: center;
-                margin: 10px 0;
+            .menu-button.show {
+                display: block;
             }
 
-            footer .social-links {
-                margin-top: 10px;
+            header .nav-links.show {
+                display: flex;
             }
+        }
 
-            footer .social-links a {
-                font-size: 1.5em;
-            }
-
-            body {
-                background-size: cover;
-            }
-
+        @media (max-width: 480px) {
             header {
-                height: 80px;
-                padding: 15px;
+                height: 60px;
+                padding: 8px;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
 
-            header .hamburger {
-                right: 15px;
-            }
-
-            header .hamburger {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                z-index: 110;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header .nav-links a {
+            header .logo {
                 font-size: 1.2em;
+            }
+
+            header .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                display: none;
+                flex-direction: column;
+                padding: 10px 20px;
             }
 
             .home-section .media-text {
                 font-size: 2em;
                 margin-top: 18%;
-                left: 0;
+                left: 10%;
             }
 
             .home-section .media-subtext {
                 font-size: 1.1em;
-                left: 0;
-            }
-
-            header {
-                height: 80px;
-                padding: 15px;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            body {
-                background-size: cover;
-            }
-
-            header .nav-links {
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                display: none;
+                left: 10%;
             }
         }
     </style>
@@ -305,9 +261,7 @@
 
     <header>
         <div class="logo">Logan Bashore</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            &#9776;
-        </div>
+        <button class="menu-button" onclick="toggleMenu()">Show Menu</button>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -342,7 +296,7 @@
             const header = document.querySelector('header');
             const logo = document.querySelector('.logo');
 
-            if (window.scrollY > 0) {
+            if (window.scrollY > 0 && window.innerWidth > 768) {
                 header.classList.add('scrolled');
                 logo.style.fontSize = '1.4em';
             } else {
@@ -351,16 +305,9 @@
             }
         });
 
-        const links = document.querySelectorAll('header .nav-links a');
-        links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-
         function toggleMenu() {
             const menu = document.querySelector('.nav-links');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            menu.classList.toggle('show');
         }
     </script>
 
