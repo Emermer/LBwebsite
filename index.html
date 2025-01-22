@@ -36,7 +36,7 @@
             transition: all 0.3s ease-in-out;
             color: #fff;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -49,8 +49,6 @@
             font-weight: bold;
             color: #fff;
             transition: font-size 0.3s ease-in-out;
-            position: absolute;
-            left: 20px;
         }
 
         header .nav-links {
@@ -166,7 +164,6 @@
         @media (max-width: 768px) {
             header .logo {
                 font-size: 1.4em;
-                left: 10px;
             }
 
             header .nav-links {
@@ -180,6 +177,7 @@
                 display: none;
                 justify-content: flex-start;
                 padding: 20px 0;
+                margin: 0;
             }
 
             header .nav-links a {
@@ -191,15 +189,18 @@
                 color: #B0BEC5;
             }
 
-            header.scrolled .nav-links {
-                display: flex;
+            header .hamburger {
+                display: block;
+                font-size: 2em;
+                cursor: pointer;
+                color: #fff;
             }
 
             .home-section .media-text {
                 font-size: 2.5em;
                 margin-top: 15%;
                 position: relative;
-                left: 5%;
+                left: 20%;
                 text-align: center;
             }
 
@@ -207,7 +208,7 @@
                 font-size: 1.2em;
                 margin-top: 0;
                 position: relative;
-                left: 5%;
+                left: 20%;
                 text-align: center;
             }
 
@@ -239,12 +240,33 @@
             .home-section .media-text {
                 font-size: 2em;
                 margin-top: 18%;
-                left: 3%;
+                left: 25%;
             }
 
             .home-section .media-subtext {
                 font-size: 1.1em;
-                left: 3%;
+                left: 25%;
+            }
+
+            body {
+                background-size: 120%;
+            }
+
+            header {
+                height: 80px;
+                padding: 15px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            header .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                display: none;
             }
         }
     </style>
@@ -254,6 +276,9 @@
 
     <header>
         <div class="logo">Logan Bashore</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -303,6 +328,11 @@
                 link.classList.add('active');
             }
         });
+
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
 
 </body>
