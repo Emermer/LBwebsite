@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Logan Bashore</title>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -35,18 +37,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease-in-out;
-        }
-
-        header.scrolled {
-            padding: 20px 8px;
         }
 
         header .logo {
             font-size: 1.8em;
             font-weight: bold;
             color: #fff;
-            transition: font-size 0.3s ease-in-out;
+            position: absolute;
+            left: 20px;
         }
 
         header .nav-links {
@@ -113,23 +111,20 @@
         footer {
             background-color: #232628;
             color: #e0e0e0;
-            padding: 50px 58px;
+            padding: 50px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             position: relative;
             margin-top: 0;
             width: 100%;
-        }
-
-        footer .email {
-            padding: 0px 300px;
-            text-align: right;
+            box-sizing: border-box;
         }
 
         footer .name {
-            padding: 0px 300px;
+            padding-left: 40px;
             text-align: left;
+            flex: 1;
         }
 
         footer .social-links {
@@ -137,6 +132,12 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
+        }
+
+        footer .email {
+            padding-right: 40px;
+            text-align: right;
+            flex: 1;
         }
 
         footer .social-links a {
@@ -161,98 +162,55 @@
 
         @media (max-width: 768px) {
             header {
-                height: 70px;
-                padding: 10px;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            header .logo {
-                font-size: 1.4em;
+                padding: 20px;
             }
 
             header .nav-links {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.7);
                 display: none;
                 flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+            }
+
+            header .nav-links a {
                 padding: 15px;
+                text-align: center;
             }
 
-            .home-section .media-text {
-                font-size: 2.5em;
-                margin-top: 15%;
-                position: relative;
-                left: 5%;
-                text-align: left;
-            }
-
-            .home-section .media-subtext {
-                font-size: 1.2em;
-                margin-top: 0;
-                position: relative;
-                left: 5%;
-                text-align: left;
-            }
-
-            .menu-button {
+            header .hamburger {
                 display: block;
-                background-color: #333;
+                font-size: 1.8em;
                 color: #fff;
-                font-size: 1.2em;
-                padding: 10px 20px;
-                border: none;
                 cursor: pointer;
-                z-index: 101;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+                box-sizing: border-box;
             }
 
-            .menu-button.show {
-                display: block;
+            .home-section .media-text, .home-section .media-subtext {
+                left: 5%;
             }
 
-            header .nav-links.show {
-                display: flex;
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            footer .name, footer .social-links, footer .email {
+                margin: 15px 0;
+                padding: 0;
+                flex: none;
             }
         }
 
-        @media (max-width: 480px) {
-            header {
-                height: 60px;
-                padding: 8px;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            header .logo {
-                font-size: 1.2em;
-            }
-
-            header .nav-links {
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                display: none;
-                flex-direction: column;
-                padding: 10px 20px;
-            }
-
-            .home-section .media-text {
-                font-size: 2em;
-                margin-top: 18%;
-                left: 10%;
-            }
-
-            .home-section .media-subtext {
-                font-size: 1.1em;
-                left: 10%;
-            }
+        .hamburger {
+            display: none;
         }
     </style>
 </head>
@@ -261,7 +219,7 @@
 
     <header>
         <div class="logo">Logan Bashore</div>
-        <button class="menu-button" onclick="toggleMenu()">Show Menu</button>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -292,23 +250,26 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
         window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
-            const logo = document.querySelector('.logo');
-
-            if (window.scrollY > 0 && window.innerWidth > 768) {
+            if (window.scrollY > 0) {
                 header.classList.add('scrolled');
-                logo.style.fontSize = '1.4em';
             } else {
                 header.classList.remove('scrolled');
-                logo.style.fontSize = '1.8em';
             }
         });
 
-        function toggleMenu() {
-            const menu = document.querySelector('.nav-links');
-            menu.classList.toggle('show');
-        }
+        const links = document.querySelectorAll('header .nav-links a');
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
     </script>
 
 </body>
