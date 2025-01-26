@@ -102,9 +102,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    position: relative;
+    margin-top: auto;
+    width: auto;
     box-sizing: border-box;
 }
 
