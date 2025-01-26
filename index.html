@@ -8,6 +8,61 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Body Layout */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-image: url('lbsnare.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Media Container Styles */
+        .media-container {
+            text-align: left;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-right: 40%;
+        }
+
+        .media-container .media-text {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .media-container .media-subtext {
+            font-size: 1.5em;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            /* Center the media text and subtext on mobile and adjust position */
+            .media-container {
+                padding-right: 0;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .media-container .media-text,
+            .media-container .media-subtext {
+                text-align: center;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +79,6 @@
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
         </div>
-        <!-- Hamburger Menu -->
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     </header>
 
