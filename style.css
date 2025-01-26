@@ -102,10 +102,10 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    margin-top: auto;
 }
 
 footer .name {
