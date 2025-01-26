@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Link to the global stylesheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+<div id="header">
     <header>
         <div class="logo">Logan Bashore</div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
@@ -24,7 +9,9 @@
             <a href="contact.html">Contact</a>
         </div>
     </header>
+</div>
 
+<div id="footer">
     <footer>
         <div class="name">Logan Bashore</div>
         <div class="social-links">
@@ -40,33 +27,4 @@
         </div>
         <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.innerWidth > 768) {
-                if (window.scrollY > 0) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        const links = document.querySelectorAll('header .nav-links a');
-        links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-    </script>
-</body>
-
-</html>
+</div>
