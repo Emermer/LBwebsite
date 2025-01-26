@@ -11,6 +11,65 @@
 
     <!-- Link to the global stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Keep the background image here in the index.html */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('lbsnare.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Site content section */
+        .home-section {
+            padding: 100px 20px;
+            text-align: left;
+            flex: 1;
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+        }
+
+        .home-section .media-text {
+            font-size: 3.5em;
+            position: relative;
+            left: 15%;
+        }
+
+        .home-section .media-subtext {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #B0BEC5;
+            position: relative;
+            left: 15%;
+        }
+
+        @media (max-width: 768px) {
+            .home-section .media-text, .home-section .media-subtext {
+                position: relative;
+                left: 0;
+                padding-left: 15px;
+                text-align: left;
+            }
+            .home-section .media-text {
+                font-size: calc(3.5em - 10px);
+            }
+            .home-section .media-subtext {
+                font-size: calc(1.5em - 10px);
+            }
+        }
+    </style>
 </head>
 
 <body>
