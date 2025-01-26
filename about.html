@@ -7,6 +7,7 @@
     <title>About | Logan Bashore</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -20,72 +21,6 @@
             min-height: 100vh;
             text-align: center;
         }
-
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            padding: 20px 8px;
-            transition: all 0.3s ease-in-out;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        header.scrolled {
-            padding: 10px 8px;
-        }
-
-        header .logo {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #fff;
-            transition: font-size 0.3s ease-in-out;
-            position: absolute;
-            left: 20px;
-        }
-
-        header .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-grow: 1;
-        }
-
-        header .nav-links a {
-            text-decoration: none;
-            color: #e0e0e0;
-            font-size: 1.2em;
-            padding: 10px;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        header .nav-links a:hover {
-            color: #B0BEC5;
-        }
-
-        header .nav-links a.active {
-            color: #e0e0e0;
-        }
-
-        
-header .nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #e0e0e0;
-    z-index: 101;
-}
-
 
         .about-section {
             display: flex;
@@ -122,54 +57,6 @@ header .nav-links a.active::after {
             line-height: 1.6;
         }
 
-        footer {
-            background-color: #232628;
-            color: #e0e0e0;
-            padding: 50px 58px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-top: 0;
-            width: 100%;
-        }
-
-        footer .email {
-            padding: 0px 300px;
-            text-align: right;
-        }
-
-        footer .name {
-            padding: 0px 300px;
-            text-align: left;
-        }
-
-        footer .social-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        footer .social-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.8em;
-            color: #e0e0e0;
-        }
-
-        footer .social-links a:hover {
-            color: #B0BEC5;
-        }
-
-        footer .email a {
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-
-        footer .email a:hover {
-            color: #B0BEC5;
-        }
 
         /* Styling the clickable text links to match header/footer links */
         .about-text a {
@@ -182,12 +69,6 @@ header .nav-links a.active::after {
             color: #B0BEC5;
         }
     
-
-
-
-
-
-
 
 @media (max-width: 768px) {
             .home-section .media-text, .home-section .media-subtext {
@@ -235,10 +116,6 @@ header .nav-links a.active::after {
                 text-align: left;
                 padding-left: 10px;
             }
-            
-            
-             
-            
              
             .home-section .media-text, .home-section .media-subtext {
                 left: 5%;
@@ -270,38 +147,6 @@ header .nav-links a.active::after {
                 background-position: calc(50% + 10px) center;
             }
 
-            header {
-                padding: 20px;
-            }
-
-            header .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: rgba(0, 0, 0, 0.7);
-                width: 100%;
-            }
-
-            header .nav-links a {
-                padding: 15px;
-                text-align: center;
-            }
-
-            header .hamburger {
-                display: block;
-                font-size: 1.5em;
-                color: #fff;
-                cursor: pointer;
-                position: absolute;
-                top: 50%;
-                right: 50px;
-                transform: translateY(-50%);
-                padding: 10px;
-                box-sizing: border-box;
-            }
-
             .home-section .media-text {
                 font-size: 3.5em;
                 position: relative;
@@ -316,22 +161,6 @@ header .nav-links a.active::after {
                 left: 15%;
             }
 
-            footer {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            footer .name, footer .social-links, footer .email {
-                margin: 15px 0;
-                padding: 0;
-                flex: none;
-            }
-        }
-
-        .hamburger {
-            display: none;
-        }
     </style>
 </head>
 
