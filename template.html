@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,211 +9,37 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        /* Header styles */
-        header {
-            background: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            padding: 20px 8px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: padding 0.3s;
-        }
-
-        header.scrolled {
-            padding: 10px 8px;
-        }
-
-        header .logo {
-            font-size: 2em; /* Adjusted for better logo visibility */
-            font-weight: bold;
-            color: #fff;
-            position: absolute;
-            left: 20px;
-        }
-
-        header .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-grow: 1;
-        }
-
-        header .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2em;
-            padding: 10px;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        header .nav-links a:hover {
-            color: #B0BEC5;
-        }
-
-        header .nav-links a.active {
-            color: #fff;
-        }
-
-        header .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            z-index: 102;
-        }
-
-        header .hamburger {
-            display: none;
-            font-size: 1.5em;
-            color: #fff;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #232628;
-            color: #e0e0e0;
-            padding: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            margin-top: 0;
-            width: auto;
-            box-sizing: border-box;
-        }
-
-        footer .name {
-            padding-left: 40px;
-            text-align: left;
-            flex: 1;
-        }
-
-        footer .social-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        footer .email {
-            padding-right: 40px;
-            text-align: right;
-            flex: 1;
-        }
-
-        footer .social-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.8em;
-            color: #e0e0e0;
-        }
-
-        footer .social-links a:hover {
-            color: #B0BEC5;
-        }
-
-        footer .email a {
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-
-        footer .email a:hover {
-            color: #B0BEC5;
-        }
-
-        /* Mobile Version */
-        @media (max-width: 768px) {
-            header .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: rgba(0, 0, 0, 0.8);
-                width: 100%;
-            }
-
-            header .nav-links a {
-                padding: 15px;
-                text-align: center;
-            }
-
-            header .hamburger {
-                display: block;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            footer .name, footer .social-links, footer .email {
-                margin: 15px 0;
-                padding: 0;
-                flex: none;
-            }
-        }
-    </style>
+    <!-- Link to the global stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="header">
-        <header>
-            <div class="logo">Logan Bashore</div>
-            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </header>
-    </div>
+    <header>
+        <div class="logo">Logan Bashore</div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
 
-    <div id="footer">
-        <footer>
-            <div class="name">Logan Bashore</div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.youtube.com/@loganbashore" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-            <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
-        </footer>
-    </div>
+    <footer>
+        <div class="name">Logan Bashore</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@loganbashore" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
+    </footer>
 
     <script>
         function toggleMenu() {
