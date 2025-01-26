@@ -7,55 +7,62 @@
     <title>Logan Bashore</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <style>
-        .home-section {
-            padding: 100px 20px;
-            text-align: left;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-        }
-
-        .home-section .media-text {
-            font-size: 3.5em;
-            position: relative;
-            left: 15%;
-        }
-
-        .home-section .media-subtext {
-            font-size: 1.5em;
-            margin-top: 0;
-            color: #B0BEC5;
-            position: relative;
-            left: 15%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
-
-    <div class="home-section">
+    <div class="media-container">
         <div class="media-text">Logan Bashore</div>
         <div class="media-subtext">Percussionist | Composer</div>
     </div>
 
-    <div id="footer-placeholder"></div>
+    <header>
+        <div class="logo">Logan Bashore</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <footer>
+        <div class="name">Logan Bashore</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@loganbashore" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
+    </footer>
 
     <script>
-        async function loadTemplate(id, url) {
-            const response = await fetch(url);
-            const template = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(template, 'text/html');
-            const content = id === 'header-placeholder' ? doc.querySelector('#header').innerHTML : doc.querySelector('#footer').innerHTML;
-            document.getElementById(id).innerHTML = content;
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        loadTemplate('header-placeholder', 'template.html');
-        loadTemplate('footer-placeholder', 'template.html');
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const links = document.querySelectorAll('header .nav-links a');
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
     </script>
 </body>
 
