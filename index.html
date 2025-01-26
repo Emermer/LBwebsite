@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,62 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('lbsnare.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #e0e0e0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .home-section {
-            padding: 100px 20px;
-            text-align: left;
-            flex: 1;
-            min-height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: left;
-            flex-direction: column;
-        }
-
-        .home-section .media-text {
-            font-size: 3.5em;
-            position: relative;
-            left: 15%;
-        }
-
-        .home-section .media-subtext {
-            font-size: 1.5em;
-            margin-top: 0;
-            color: #B0BEC5;
-            position: relative;
-            left: 15%;
-        }
-
-        @media (max-width: 768px) {
-            .home-section .media-text, .home-section .media-subtext {
-                position: relative;
-                left: 0;
-                padding-left: 15px;
-                text-align: left;
-            }
-            .home-section .media-text {
-                font-size: calc(3.5em - 10px);
-            }
-            .home-section .media-subtext {
-                font-size: calc(1.5em - 10px);
-            }
-        }
-    </style>
+    <!-- Link to the global stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -86,7 +31,7 @@
             const template = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(template, 'text/html');
-            const content = id === 'header-placeholder' ? doc.querySelector('#header').innerHTML : doc.querySelector('#footer').innerHTML;
+            const content = id === 'header-placeholder' ? doc.querySelector('header').innerHTML : doc.querySelector('footer').innerHTML;
             document.getElementById(id).innerHTML = content;
         }
 
