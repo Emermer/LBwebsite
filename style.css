@@ -222,7 +222,7 @@ footer .email a:hover {
     .media-container {
         padding-right: 0;
         text-align: center;
-        margin-top: 5px;  /* Adjust this value to fine-tune the vertical positioning */
+        margin-top: 50px;  /* Adjust this value to fine-tune the vertical positioning */
     }
 
     .media-container .media-text,
