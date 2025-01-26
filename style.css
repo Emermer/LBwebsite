@@ -35,7 +35,7 @@ header {
 }
 
 header.scrolled {
-    padding: 10px 8px;
+    padding: 10px 8px;  /* Increased padding when scrolled */
 }
 
 header .logo {
@@ -44,6 +44,7 @@ header .logo {
     color: #fff;
     position: absolute;
     left: 20px;
+    text-decoration: none;
 }
 
 header .nav-links {
@@ -84,12 +85,12 @@ header .nav-links a.active::after {
 
 header .hamburger {
     display: none;
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: #fff;
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: 50px;
+    right: 20px;
     transform: translateY(-50%);
     padding: 10px;
     box-sizing: border-box;
@@ -172,6 +173,18 @@ footer .email a:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    header {
+        padding: 30px 8px;  /* Larger header padding on mobile */
+    }
+
+    header.scrolled {
+        padding: 28px 8px;  /* Larger header padding on mobile */
+    }
+
+    header .logo {
+        font-size: 1.9em;  /* Slightly reduced font size for logo on mobile */
+    }
+
     header .nav-links {
         display: none;
         flex-direction: column;
@@ -188,7 +201,7 @@ footer .email a:hover {
     }
 
     header .hamburger {
-        display: block;
+        display: block;  /* Show hamburger menu on mobile */
     }
 
     footer {
@@ -203,5 +216,19 @@ footer .email a:hover {
         margin: 15px 0;
         padding: 0;
         flex: none;
+    }
+
+    /* Center the media text and subtext on mobile and adjust position */
+    .media-container {
+        padding-right: 0;
+        text-align: center;
+        margin-top: 50px;  /* Adjust this value to fine-tune the vertical positioning */
+    }
+
+    .media-container .media-text,
+    .media-container .media-subtext {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 15px;
     }
 }
