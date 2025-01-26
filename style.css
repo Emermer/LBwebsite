@@ -1,16 +1,27 @@
-/* style.css */
-
-/* General Styles */
+/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Header styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* Header Styles */
 header {
-    background: rgba(0, 0, 0, 0.7); /* Black with slight transparency */
+    background: rgba(0, 0, 0, 0.7);
     position: fixed;
     width: 100%;
     top: 0;
@@ -29,7 +40,7 @@ header.scrolled {
 }
 
 header .logo {
-    font-size: 2em; /* Adjusted for logo */
+    font-size: 1.8em;
     font-weight: bold;
     color: #fff;
     position: absolute;
@@ -85,7 +96,7 @@ header .hamburger {
     box-sizing: border-box;
 }
 
-/* Footer styles */
+/* Footer Styles */
 footer {
     background-color: #232628;
     color: #e0e0e0;
@@ -138,7 +149,7 @@ footer .email a:hover {
     color: #B0BEC5;
 }
 
-/* Mobile-specific Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     header .nav-links {
         display: none;
