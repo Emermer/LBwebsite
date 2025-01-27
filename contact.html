@@ -28,7 +28,35 @@
             min-height: 70vh;
         }
 
-@media (max-width: 768px) {
+        .email-button {
+            background-color: #0066cc; /* Modern blue color */
+            color: #fff; /* White text */
+            font-size: 1.2em; /* Increase font size */
+            padding: 15px 30px; /* Increase padding for a larger button */
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smooth transition */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .email-button i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .email-button:hover {
+            background-color: #005bb5; /* Darker shade on hover */
+            transform: scale(1.05); /* Slight grow effect on hover */
+        }
+
+        .email-button:focus {
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
             .home-section .media-text, .home-section .media-subtext {
                 position: relative;
                 left: 0;
@@ -53,7 +81,6 @@
                 left: 0;
                 font-size: 1.5em;
             }
-             
             .home-section .media-text {
                 font-size: calc(3.5em - 10px);
             }
@@ -74,7 +101,6 @@
                 text-align: left;
                 padding-left: 10px;
             }
-             
             .home-section .media-text, .home-section .media-subtext {
                 left: 5%;
             }
@@ -104,13 +130,11 @@
             body {
                 background-position: calc(50% + 10px) center;
             }
-
             .home-section .media-text {
                 font-size: 3.5em;
                 position: relative;
                 left: 15%;
             }
-
             .home-section .media-subtext {
                 font-size: 1.5em;
                 margin-top: 0;
@@ -118,7 +142,7 @@
                 position: relative;
                 left: 15%;
             }
-
+        }
     </style>
 </head>
 
@@ -137,7 +161,8 @@
 
     <div class="contact-section">
         <h1>Contact Me</h1>
-        <p>If you would like to get in touch, feel free to reach out! You can contact me via email (loganbashore13@gmail.com) or through my social media accounts.</p>
+        <p>If you would like to get in touch, feel free to reach out!</p>
+        <p>You can contact me via email (loganbashore13@gmail.com) or through my social media accounts.</p>
         <a href="mailto:loganbashore13@gmail.com">
             <button class="email-button">
                 <i class="fas fa-envelope"></i> Send Me an Email
