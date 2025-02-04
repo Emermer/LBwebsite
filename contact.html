@@ -4,90 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logan Bashore</title>
+    <title>Contact | Logan Bashore</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Body Layout */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            background-image: url('media/photos/lbsnare.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            padding: 0;
+            background-color: #121212;
             color: #e0e0e0;
-            min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Media Container Styles */
-        .media-container {
-            text-align: left;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
+        .contact-section {
+            padding: 140px 20px;
+            text-align: center;
+            flex: 1;
+            min-height: 50vh;
+        }
+
+        .email-button {
+            background-color: #0066cc;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding-right: 40%;
+            margin-top: 10px;
         }
 
-        .media-container .media-text {
-            font-size: 4em;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        .email-button i {
+            margin-right: 10px;
         }
 
-        .media-container .media-subtext {
-            font-size: 2em;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        .email-button:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
         }
 
-        /* Responsive Styles */
+        .email-button:focus {
+            outline: none;
+        }
+
+        /* Add space between paragraphs */
+        .contact-section p {
+            margin-bottom: 5px;
+        }
+
         @media (max-width: 768px) {
-            /* Center the media text and subtext on mobile and adjust position */
-            .media-container {
-                padding-right: 0;
-                text-align: center;
-                margin-top: 50px;
-            }
-
-            .media-container .media-text {
-                text-align: center;
-                margin: 0 auto;
-                padding: 0 15px;
-                font-size: 3em;
-            }
-
-            .media-container .media-subtext {
-                text-align: center;
-                margin: 0 auto;
-                padding: 0 15px;
-                font-size: 1.5em;
+            .home-section .media-text, .home-section .media-subtext {
+                position: relative;
+                left: 0;
+                padding-left: 15px;
+                text-align: left;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="media-container">
-        <div class="media-text">Logan Bashore</div>
-        <div class="media-subtext">Percussionist | Composer</div>
-    </div>
 
     <header>
         <a href="https://www.loganbashore.com" class="logo">Logan Bashore</a>
         <div class="nav-links">
-            <a href="https://www.loganbashore.com" class="active">Home</a>
+            <a href="https://www.loganbashore.com">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     </header>
+
+    <div class="contact-section">
+        <h1>Contact Me</h1>
+        <p>If you would like to get in touch, feel free to reach out!</p>
+        <p>You can contact me via email (loganbashore13@gmail.com) or through my social media accounts.</p>
+        <a href="mailto:loganbashore13@gmail.com">
+            <button class="email-button">
+                <i class="fas fa-envelope"></i> Send Me an Email
+            </button>
+        </a>
+    </div>
 
     <footer>
         <div class="name">Logan Bashore</div>
@@ -113,8 +120,12 @@
 
         window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
+            if (window.innerWidth > 768) {
+                if (window.scrollY > 0) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             } else {
                 header.classList.remove('scrolled');
             }
@@ -127,6 +138,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
