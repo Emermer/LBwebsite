@@ -131,8 +131,8 @@
         }
 
         .media-gallery img {
-            width: auto;
-            height: 400px;
+            width: 100%;
+            height: auto;
             border-radius: 8px;
             object-fit: cover;
             transition: transform 0.3s;
@@ -140,6 +140,16 @@
 
         .media-gallery img:hover {
             transform: scale(1.05);
+        }
+
+        .media-gallery img.large {
+            grid-column: span 2;
+            height: auto;
+        }
+
+        .media-gallery img.small {
+            height: 150px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -164,7 +174,7 @@
         <h2>Photos</h2>
         <div class="media-gallery">
             <img src="photos/lbtonguetsoperehearsal.jpg">
-            <img src="photos/393198248_18395394544014417_3592142793651354062_n.jpg">
+            <img src="photos/393198248_18395394544014417_3592142793651354062_n.jpg" class="large">
             <img src="photos/IMG_20241005_235628_579.jpg">
             <img src="photos/IMG_20240515_013258_406.jpg">
             <img src="photos/IMG_20240515_013311_025.jpg">
