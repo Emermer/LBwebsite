@@ -23,7 +23,7 @@
         }
 
         .contact-section {
-            padding: 140px 20px;
+            padding: 125px 20px;
             text-align: center;
             flex: 1;
             min-height: 50vh;
@@ -41,7 +41,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .email-button i {
@@ -61,6 +61,19 @@
         .contact-section p {
             margin-bottom: 5px;
         }
+
+	.portrait-image-container {
+        margin-top: 30px;
+        text-align: center;
+	}
+
+	.portrait-image {
+        width: 400px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+	}
 
         @media (max-width: 768px) {
             .home-section .media-text, .home-section .media-subtext {
@@ -96,6 +109,11 @@
                 <i class="fas fa-envelope"></i> Send Me an Email
             </button>
         </a>
+
+        <!-- Portrait Image Below Button -->
+        <div class="portrait-image-container">
+            <img src="../media/photos/IMG_20250409_192304~2.jpg" class="portrait-image">
+        </div>
     </div>
 
     <footer>
