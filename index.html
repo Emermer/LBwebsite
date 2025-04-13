@@ -55,7 +55,7 @@
     }
 
     body {
-        background-size: 160% 75vh; /* Slight zoom-out horizontally */
+        background-size: 165% 75vh; /* Slight zoom-out horizontally */
         background-position: top left 65%;
         min-height: 80vh;
     }
@@ -69,6 +69,9 @@
 
     .media-container .media-text {
         font-size: 3em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
     }
 
     .media-container .media-subtext {
