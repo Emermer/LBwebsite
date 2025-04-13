@@ -47,6 +47,17 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         }
 
+	.media-text, .media-subtext {
+            opacity: 0;
+            transform: translateY(20px);
+	    transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+
+	.media-text.show, .media-subtext.show {
+            opacity: 1;
+	    transform: translateY(0);
+	}
+
   @media (max-width: 768px) {
     html, body {
         height: 100%;
@@ -123,28 +134,33 @@
         <p class="email"><a href="mailto:loganbashore13@gmail.com">loganbashore13@gmail.com</a></p>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
+    });
 
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    const links = document.querySelectorAll('header .nav-links a');
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
 
-        const links = document.querySelectorAll('header .nav-links a');
-        links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-    </script>
+    window.addEventListener('load', function () {
+        document.querySelector('.media-text').classList.add('show');
+        document.querySelector('.media-subtext').classList.add('show');
+    });
+</script>
 </body>
 
 </html>
