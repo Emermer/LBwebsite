@@ -42,13 +42,15 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 	    opacity: 0;
 	    transform: translateY(20px);
-	    transition: opacity 0.6s ease, transform 0.6s ease;
+	    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
         }
 
 
 	.about-section img.fade-in {
 	    opacity: 1;
 	    transform: translateY(0);
+	    visibility: visible;
+	    transition: opacity 0.6s ease, transform 0.6s ease;
 	}
 
 
