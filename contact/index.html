@@ -24,7 +24,7 @@
         }
 
         .contact-section {
-            padding: 125px 20px;
+            padding: 115px 20px 125px 20px;
             text-align: center;
             flex: 1;
             min-height: 50vh;
@@ -33,8 +33,8 @@
         .email-button {
             background-color: #0066cc;
             color: #fff;
-            font-size: 1.2em;
-            padding: 15px 30px;
+            font-size: 1.25em;
+            padding: 15px 45px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -58,6 +58,34 @@
             outline: none;
         }
 
+        .igdm-button {
+            background-color: #333333;
+            color: #fff;
+            font-size: 1.1em;
+            padding: 8px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .igdm-button i {
+            margin-right: 10px;
+        }
+
+        .igdm-button:hover {
+            background-color: #282828;
+            transform: scale(1.05);
+        }
+
+        .igdm-button:focus {
+            outline: none;
+        }
+
         /* Add space between paragraphs */
         .contact-section p {
             margin-bottom: 5px;
@@ -69,7 +97,7 @@
 	}
 
 	.portrait-image {
-            width: 400px;
+            width: 380px;
 	    height: auto;
 	    border-radius: 10px;
 	    object-fit: cover;
@@ -95,6 +123,20 @@
                 padding-left: 15px;
                 text-align: left;
             }
+
+        .email-button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        .igdm-button {
+            font-size: 1em;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-top: 10px;
+        }
 
 	.portrait-image {
 		width: 300px;
@@ -133,11 +175,19 @@
         <h1>Contact Me</h1>
         <p>If you would like to get in touch, feel free to reach out!</p>
         <p>You can contact me via email (loganbashore13@gmail.com) or through my social media accounts.</p>
+	<div style="display: flex; flex-direction: column; align-items: center;">
         <a href="mailto:loganbashore13@gmail.com">
             <button class="email-button">
                 <i class="fas fa-envelope"></i> Send Me an Email
             </button>
         </a>
+
+        <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
+            <button class="igdm-button">
+                <i class="fab fa-instagram"></i> Instagram Message
+            </button>
+        </a>
+    </div>
 
         <!-- Portrait Image Below Button -->
         <div class="portrait-image-container">
