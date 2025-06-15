@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos | Logan Bashore</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121212;
+        color: #e0e0e0;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        text-align: center;
+    }
+
+    .media-section {
+        padding: 125px 0px 40px;
+        text-align: center;
+        flex: 1;
+        min-height: 70vh;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .media-section h2 {
+        margin-bottom: 40px;
+    }
+
+    .media-tabs {
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 1.6em;
+        display: inline-flex;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .media-tabs .tab {
+        color: #e0e0e0;
+        text-decoration: none;
+        padding-bottom: 5px;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+    }
+
+    .media-tabs .tab:not(.active):hover {
+        color: #B0BEC5;
+    }
+
+    .media-tabs .tab.active {
+        border-color: #e0e0e0;
+        font-weight: 700;
+    }
+
+    body.transitions-enabled .media-tabs .tab {
+        transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .media-gallery {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+    .media-gallery img {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        display: block;
+        object-fit: cover;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .media-gallery img.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+        .media-gallery {
+            column-count: 2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .home-section .media-text,
+        .home-section .media-subtext {
+            position: relative;
+            left: 0;
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .home-section .media-text {
+            font-size: 3.5em;
+            left: 15%;
+            margin-top: -60px;
+        }
+
+        .home-section .media-subtext {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #B0BEC5;
+            left: 15%;
+        }
+
+        body {
+            background-position: calc(50% + 10px) center;
+        }
+
+        .media-gallery {
+            column-count: 1;
+        }
+
+        .media-gallery img.large {
+            grid-column: span 2;
+            height: auto;
+        }
+    }
+</style>
+</head>
+
+<script>
+    // After page load, add a class to enable transitions
+    window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('transitions-enabled');
+    });
+</script>
+
+<script>
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const images = document.querySelectorAll('.media-gallery img');
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    img.classList.add('fade-in');
+                }, index * 25); // staggered fade-in (optional)
+            });
+        }, 200); // 200ms initial delay
+    });
+</script>
+
+<body>
+    <header>
+        <a href="https://www.loganbashore.com" class="logo">Logan Bashore</a>
+        <div class="nav-links">
+            <a href="https://www.loganbashore.com">Home</a>
+            <a href="../about">About</a>
+            <a href="../photos" class="active">Media</a>
+            <a href="../services">Services</a>
+            <a href="../contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </header>
+    </div>
+
+    <!-- Media Gallery Section -->
+    <section class="media-section">
+        <h2 class="media-tabs">
+            <a href="../photos" class="tab active">Photos</a>
+            <a href="../videos" class="tab">Videos</a>
+        </h2>
+        <div class="media-gallery">
+            <img src="../media/IMG_20250409_192300.jpg">
+            <img src="../media/IMG_20240515_013258_406.jpg">
+            <img src="../media/IMG_20240515_013319_225.jpg">
+            <img src="../media/IMG_20250409_192313~3.jpg">
+            <img src="../media/393198248_18395394544014417_3592142793651354062_n.jpg" class="large">
+            <img src="../media/463823374_2838871099623643_4533074778917471468_n_1080.jpg">
+            <img src="../media/IMG_20241005_235628_579.jpg">
+            <img src="../media/IMG_20250417_223509.jpg">
+            <img src="../media/IMG_20241008_140054_529.jpg">
+            <img src="../media/IMG_20250409_192307~3.jpg">
+            <img src="../media/lbtonguetsoperehearsal.jpg">
+            <img src="../media/IMG_20241005_235657_535.jpg">
+            <img src="../media/IMG_20240515_013311_025.jpg">
+        </div>
+    </section>
+
+    <footer>
+        <div class="name">Logan Bashore</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@loganbashore" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="email"><a href="mailto:contactloganbashore@gmail.com">contactloganbashore@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.innerWidth > 768) {
+                if (window.scrollY > 0) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const links = document.querySelectorAll('header .nav-links a');
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
