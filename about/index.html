@@ -30,7 +30,7 @@
             padding: 100px 20px;
             flex: 1;
             min-height: 70vh;
-            margin-top: 80px;
+            margin-top: 70px;
         }
 
         .about-section img {
@@ -40,18 +40,18 @@
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-	    opacity: 0;
-	    transform: translateY(20px);
-	    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+	        opacity: 0;
+	        transform: translateY(20px);
+	        transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
         }
 
 
-	.about-section img.fade-in {
-	    opacity: 1;
-	    transform: translateY(0);
-	    visibility: visible;
-	    transition: opacity 0.6s ease, transform 0.6s ease;
-	}
+	    .about-section img.fade-in {
+	        opacity: 1;
+	        transform: translateY(0);
+	        visibility: visible;
+	        transition: opacity 0.6s ease, transform 0.6s ease;
+	    }
 
 
         .about-text {
@@ -65,17 +65,15 @@
         }
 
         .about-section p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #B0BEC5;
             margin: 20px auto;
             line-height: 1.6;
         }
 
-
-        /* Styling the clickable text links to match header/footer links */
         .about-text a {
             color: #e0e0e0;
-            text-decoration: underline; /* Keep underline */
+            text-decoration: underline;
             transition: color 0.3s;
         }
 
@@ -85,115 +83,34 @@
     
 
 @media (max-width: 768px) {
-            .home-section .media-text, .home-section .media-subtext {
-                position: relative;
-                left: 0;
-                padding-left: 15px;
-                text-align: left;
-            }
-            .home-section .media-text {
-                font-size: calc(3.5em - 10px);
-            }
-            .home-section .media-subtext {
-                font-size: calc(1.5em - 10px);
-            }
-            .home-section .media-text {
-                text-align: left;
-                padding-left: 15px;
-                left: 0;
-                font-size: 3.5em;
-            }
-            .home-section .media-subtext {
-                text-align: left;
-                padding-left: 15px;
-                left: 0;
-                font-size: 1.5em;
-            }
-             
-            .home-section .media-text {
-                font-size: calc(3.5em - 10px);
-            }
-            .home-section .media-subtext {
-                font-size: calc(1.5em - 10px);
-            }
-            .home-section .media-text {
-                left: 0;
-                padding-left: 10px;
-                font-size: calc(3.5em - 10px);
-            }
-            .home-section .media-subtext {
-                left: 0;
-                padding-left: 10px;
-                font-size: calc(1.5em - 10px);
-            }
-            .home-section .media-text, .home-section .media-subtext {
-                text-align: left;
-                padding-left: 10px;
-            }
-             
-            .home-section .media-text, .home-section .media-subtext {
-                left: 5%;
-            }
-            .home-section .media-text, .home-section .media-subtext {
-                left: 10%;
-            }
-            .home-section .media-text {
-                left: 5%;
-            }
-            .home-section .media-subtext {
-                left: 5%;
-            }
-            .home-section .media-text {
-                margin-top: -60px;
-            }
-            .home-section .media-subtext {
-                margin-top: -60px;
-                color: #555;
-            }
-            .home-section .media-text {
-                margin-top: -60px;
-            }
-            .home-section .media-subtext {
-                margin-top: -60px;
-                color: #555;
-            }
             body {
                 background-position: calc(50% + 10px) center;
             }
 
-            .home-section .media-text {
-                font-size: 3.5em;
-                position: relative;
-                left: 15%;
-            }
-
-            .home-section .media-subtext {
-                font-size: 1.5em;
-                margin-top: 0;
-                color: #B0BEC5;
-                position: relative;
-                left: 15%;
-            }
-
             .about-section {
+                margin-top: 80px;
                 display: flex;
-                flex-direction: column; /* This will place the text below the image on mobile */
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 padding: 0px 10px;
             }
 
             .about-section img {
-		height: 100%;
+		        height: 100%;
                 max-width: 304px;
                 margin: 0px 0px 10px;
             }
 
-            .about-section .about-text {
-                max-width: 90%; /* Ensure the text is responsive */
-                margin-bottom: 10px; /* Add some space between text and image */
+            .about-section p {
+                font-size: 1.2em;
             }
 
+            .about-section .about-text {
+                max-width: 90%;
+                margin-bottom: 10px; /* Add some space between text and image */
+            }
+        }
     </style>
 </head>
 
@@ -206,7 +123,7 @@
                     img.classList.add('fade-in');
                 }, index * 25); // staggered fade-in (optional)
             });
-        }, 80); // 200ms initial delay
+        }, 80); // 80ms initial delay
     });
 </script>
 
@@ -216,8 +133,8 @@
         <div class="nav-links">
             <a href="https://www.loganbashore.com">Home</a>
             <a href="../about" class="active">About</a>
-            <a href="../photos">Media</a>
             <a href="../services">Services</a>
+            <a href="../photos">Media</a>
             <a href="../contact">Contact</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -227,13 +144,11 @@
         <img src="../media/IMG_20250409_192346~2.jpg">
         <div class="about-text">
             <h1>About Logan</h1>
-            <p>Logan Bashore is a percussionist, composer, and arranger from Florida. He began his musical journey on piano at a young age but later shifted his focus to percussion after discovering the marching arts. Logan is an alumnus of the Tarpon Springs High School Leadership Conservatory for the Arts (TSLCA) where he has served as drumline section leader, wind ensemble section leader, and center snare. He has performed with the TSLCA Wind Ensemble and TSLCA Wind Symphony, as well as with the TSLCA Jazz Big Band and TSLCA Jazz Ensemble as a pianist. He has also competed and performed nationally with TSLCA at the BOA Grand National Championships at Lucas Oil Stadium in both 2022 and 2024, where the ensemble consecutively placed 1st in their division. In addition, Logan had the privilege of performing with TSLCA in the 96th Annual Macy’s Thanksgiving Day Parade in 2022.</p>
+            <p>Logan Bashore is a Christian percussionist, composer, and arranger from Florida. He began his musical journey on piano at a young age but later shifted his focus to percussion after discovering the marching arts. Logan is an alumnus of the Tarpon Springs High School Leadership Conservatory for the Arts (TSLCA), where he has served as drumline section leader, wind ensemble section leader, and center snare. Among his many highlights as a member of TSLCA were performing at the BOA Grand National Championships in 2022 and 2024, as well as marching in the 96th Annual Macy’s Thanksgiving Day Parade in 2022.</p>
 
-            <p>Logan’s dedication to his craft has led to a number of accomplishments throughout his time in the activity. Throughout his high school career, Logan earned superior ratings at FBA Solo and Ensemble all four years. He received superior ratings for performances such as <em>Backseat Freestyle</em>, a grade 7 marching snare solo, in 2024, and a superior rating for <em>Undertale Variations</em>, a grade 5 four-mallet marimba solo, in 2025. Also in 2025, Logan earned a superior with distinction rating at State Solo and Ensemble for his performance of <em>Undertale Variations</em>, marking a significant recognition of his skill and artistry.</p>
-
-	    <p>Logan continues to pursue his passion for the marching arts beyond performance. He works as a freelance percussion composer and arranger on <em>Fiverr</em> and aspires to write for high school programs and drum corps. He also intends to perform with a corps in the near future while continuing to grow as both a writer and performer in the activity.</p>
+            <p>Logan continues to pursue his passion for the marching arts beyond performance. He works as a freelance percussion composer and arranger on <em>Fiverr</em> and aspires to write for high school programs and drum corps. He also intends to perform with a corps in the near future while continuing to grow as both a writer and performer in the activity.</p>
  
-	    <p>Logan has been a recipient of numerous accolades, including the TSLCA Most Improved Freshman Percussionist Award (2021–2022), TSLCA Russ & Lu Tardiff Commitment to Excellence Scholarship (2021–2022), TSLCA Most Improved Junior Percussionist Award (2023–2024), TSLCA Director's Award – Percussion (2023–2024), and TSLCA Most Outstanding Senior Percussionist Award (2024–2025).</p>
+	    <p>Logan consistently earned superior ratings at FBA Solo & Ensemble throughout his high school career, most notably receiving a superior with distinction rating at State Solo & Ensemble for his performance of <em>Undertale Variations</em> in 2025. He has also received numerous accolades, including the TSLCA Most Improved Freshman Percussionist Award (2021–2022), TSLCA Russ & Lu Tardiff Commitment to Excellence Scholarship (2021–2022), TSLCA Most Improved Junior Percussionist Award (2023–2024), TSLCA Director's Award – Percussion (2023–2024), and TSLCA Most Outstanding Senior Percussionist Award (2024–2025). Logan credits his success to the Lord’s guidance and the support of his peers.</p>
         </div>
     </div>
 

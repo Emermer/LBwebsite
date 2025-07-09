@@ -87,6 +87,41 @@
         transform: translateY(0);
     }
 
+    /* Back to Top button styles */
+    #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        border-radius: 50%;
+        background: #e0e0e0;
+        color: #121212;
+        font-size: 1.2em;
+        cursor: pointer;
+        display: none;      /* hidden initially */
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+    }
+
+    body.transitions-enabled #backToTop {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #backToTop.show {
+        display: flex;
+        opacity: 0.9;
+    }
+
+    #backToTop:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+
+
     @media (max-width: 1024px) {
         .media-gallery {
             column-count: 2;
@@ -157,8 +192,8 @@
         <div class="nav-links">
             <a href="https://www.loganbashore.com">Home</a>
             <a href="../about">About</a>
-            <a href="../photos" class="active">Media</a>
             <a href="../services">Services</a>
+            <a href="../photos" class="active">Media</a>
             <a href="../contact">Contact</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -228,6 +263,26 @@
             if (link.href === window.location.href) {
                 link.classList.add('active');
             }
+        });
+    </script>
+
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 
