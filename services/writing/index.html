@@ -68,21 +68,36 @@
             margin-bottom: 30px;
         }
 
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(33, 136, 56, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 15px 8px rgba(33, 136, 56, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(33, 136, 56, 0.7);
+            }
+        }
+
+
         .fiverr-link {
             display: inline-block;
             background-color: #1c1c1c;
             color: white;
             font-size: 1.1em;
             padding: 12px 25px;
+            border: 2px solid #333;
             border-radius: 5px;
             text-decoration: none;
             margin-top: 30px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, border 0.3s ease;
             display: flex;
             align-items: center;
             width: 36%;
             margin-left: auto;
             margin-right: auto;
+            animation: pulseGlow 4s infinite;
         }
 
         .fiverr-link i {
@@ -97,6 +112,7 @@
 
         .fiverr-link:hover {
             background-color: #218838;
+            border: 2px solid transparent;
         }
 
         .media-gallery {
@@ -270,7 +286,7 @@
     <div class="services-section">
         <h1>Writing</h1>
         <p>As a composer/arranger of 2+ years, I have the expertise and knowledge to <b>transform your ensemble.</b></p>
-        <h2>Here are a couple samples of my world-class level productions</h2>
+        <h2>Here are some samples of my world-class level productions</h2>
         <div class="media-gallery">
             <div class="video-wrapper">
                 <iframe class="youtube-video" src="https://www.youtube.com/embed/9Z7YkHZUugk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -311,7 +327,7 @@
                 <div class="stars">★★★★★</div>
                 <p>"Logan did a great job! Well worth the price."</p>
                 <p2><strong>- EMCProductions</strong></p2>
-                <div class="context">A Fiverr review from influencer <a href="https://www.youtube.com/@EMCproductions" target="_blank">EMCProductions</a> about Logan's movement for the show "Chickens & Demons 2: Return of the Cluck."</div>
+                <div class="context">A Fiverr review from influencer <a href="https://www.youtube.com/@EMCproductions" target="_blank">EMCProductions</a> for Logan's movement of "Chickens & Demons 2: Return of the Cluck."</div>
             </div>
         </div>
 
