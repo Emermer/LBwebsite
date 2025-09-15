@@ -9,6 +9,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <meta property="og:image" content="https://www.loganbashore.com/media/IMG_20250409_192256HOME.jpg">
+    <meta property="og:title" content="Logan Bashore">
+    <meta property="og:description" content="Percussionist | Composer">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Logan Bashore",
+      "jobTitle": "Percussionist, Composer",
+      "image": "https://www.loganbashore.com/media/IMG_20250409_192256HOME.jpg",
+      "url": "https://www.loganbashore.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/loganbashoremusic/",
+        "https://www.instagram.com/logan.bashore.music/",
+        "https://www.youtube.com/@loganbashore"
+      ]
+    }
+    </script>
+
     <style>
         /* Body Layout */
         body {
@@ -48,60 +69,65 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         }
 
-	.media-text, .media-subtext {
+        .media-text, .media-subtext {
             opacity: 0;
             transform: translateY(20px);
-	    transition: opacity 0.5s ease, transform 0.5s ease;
-	}
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
 
-	.media-text.show, .media-subtext.show {
+        .media-text.show, .media-subtext.show {
             opacity: 1;
-	    transform: translateY(0);
-	}
+            transform: translateY(0);
+        }
 
-  @media (max-width: 768px) {
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
+        @media (max-width: 768px) {
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
 
-    body {
-        background-size: 780px; /* Slight zoom-out horizontally */
-        background-position: top left 70%;
-        min-height: 80vh;
-    }
+            body {
+                background-size: 780px; /* Slight zoom-out horizontally */
+                background-position: top left 70%;
+                min-height: 80vh;
+            }
 
-    .media-container {
-        flex-grow: 1;
-        padding: 80px 15px 20px 15px;
-        align-items: center;
-        text-align: center;
-    }
+            .media-container {
+                flex-grow: 1;
+                padding: 80px 15px 20px 15px;
+                align-items: center;
+                text-align: center;
+            }
 
-    .media-container .media-text {
-        font-size: 2.7em;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-    }
+            .media-container .media-text {
+                font-size: 2.7em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-    .media-container .media-subtext {
-        font-size: 1.4em;
-    }
+            .media-container .media-subtext {
+                font-size: 1.4em;
+            }
 
-    footer {
-        flex-shrink: 0;
-        text-align: center;
-        padding: 20px 0;
-        color: #e0e0e0;
-        width: 100%;
-    }
-}
-  </style>
+            footer {
+                flex-shrink: 0;
+                text-align: center;
+                padding: 20px 0;
+                color: #e0e0e0;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- ✅ Hidden img so Google can crawl the background image -->
+    <img src="media/IMG_20250409_192256HOME.jpg" 
+         alt="Logan Bashore - Percussionist | Composer" 
+         style="display:none;" />
+
     <div class="media-container">
         <div class="media-text">Logan Bashore</div>
         <div class="media-subtext">Percussionist | Composer</div>
@@ -163,5 +189,4 @@
     });
 </script>
 </body>
-
 </html>
