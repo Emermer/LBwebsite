@@ -39,6 +39,14 @@
     .media-section h3 {
         margin-top: 38px;
         font-size: 15px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .media-section h3.show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .media-tabs {
@@ -172,7 +180,6 @@
 </head>
 
 <script>
-    // After page load, add a class to enable transitions
     window.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('transitions-enabled');
     });
@@ -180,14 +187,18 @@
 
 <script>
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            const images = document.querySelectorAll('.media-gallery img');
-            images.forEach((img, index) => {
-                setTimeout(() => {
-                    img.classList.add('fade-in');
-                }, index * 25); // staggered fade-in (optional)
-            });
-        }, 200); // 200ms initial delay
+        const images = document.querySelectorAll('.media-gallery img');
+        const h3 = document.querySelector('.media-section h3');
+        images.forEach((img, index) => {
+            setTimeout(() => {
+                img.classList.add('fade-in');
+                if (index === images.length - 1) {
+                    setTimeout(() => {
+                        h3.classList.add('show');
+                    }, 100);
+                }
+            }, index * 25);
+        });
     });
 </script>
 
