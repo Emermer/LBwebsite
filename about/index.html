@@ -144,7 +144,7 @@
         <img src="../media/IMG_20250409_192346~2.jpg">
         <div class="about-text">
             <h1>About Logan</h1>
-            <p>Logan Bashore is a Christian percussionist, composer, and arranger from Florida. He’s currently a percussion instructor for the East Lake High School Silver Sound Marching Band, additionally working as a freelance marching percussion composer/arranger on <em>Fiverr</em>. He credits his success to the Lord and the support of his peers.</p>
+            <p>Logan Bashore is a Christian percussionist, composer, and arranger from Florida. He’s currently a percussion instructor for the East Lake High School Silver Sound Marching Band, additionally working as a freelance marching percussion composer & arranger on <em>Fiverr</em>. He credits his success to the Lord and the support of his peers.</p>
 
             <p>Logan is an alumnus of the Tarpon Springs High School Leadership Conservatory for the Arts (TSLCA), where he has served as drumline section leader, wind ensemble section leader, and center snare. Within his time of membership, he was recognized with the Most Outstanding Senior Percussionist Award (‘25), Director's Award – Percussion (‘24), Most Improved Junior & Freshman Percussionist Awards (‘24, ‘22), and the Russ & Lu Tardiff Commitment to Excellence Scholarship (‘22).</p>
 
@@ -154,21 +154,24 @@
         </div>
     </div>
 
-    <footer>
-        <div class="name">© 2025 · Logan Bashore</div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/@loganbashore" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-        <p class="email"><a href="mailto:contactloganbashore@gmail.com">contactloganbashore@gmail.com</a></p>
-    </footer>
+<div id="footer-placeholder"></div>
+<script>
+(function() {
+    const path = window.location.pathname;
+    const repoBase = "";
+    const pathParts = path.replace(repoBase, "").split("/").filter(p => p !== "" && !p.includes(".html"));
+    let prefix = "../".repeat(pathParts.length);
+    fetch(prefix + "footer.html")
+        .then(res => {
+            if (!res.ok) throw new Error(`Could not load footer: ${res.statusText}`);
+            return res.text();
+        })
+        .then(data => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(err => console.error(err));
+})();
+</script>
 
     <script>
         function toggleMenu() {

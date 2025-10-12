@@ -10,33 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <meta property="og:image" content="https://www.loganbashore.com/media/IMG_20250409_192256HOME.jpg">
-    <meta property="og:title" content="Logan Bashore">
-    <meta property="og:description" content="Percussionist | Composer">
 
+    <meta property="og:title" content="Your Page Title">
+    <meta property="og:image" content="https://www.loganbashore.com/media/HOME.jpg">
+    <meta property="og:url" content="https://www.loganbashore.com">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Logan Bashore",
-      "jobTitle": "Percussionist, Composer",
-      "image": "https://www.loganbashore.com/media/IMG_20250409_192256HOME.jpg",
+      "jobTitle": "Percussionist | Composer",
+      "image": "https://www.loganbashore.com/media/HOME.jpg",
+      "logo": "https://www.loganbashore.com/media/HOME.jpg",
       "url": "https://www.loganbashore.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/loganbashoremusic/",
-        "https://www.instagram.com/logan.bashore.music/",
-        "https://www.youtube.com/@loganbashore"
-      ]
     }
     </script>
 
     <style>
-        /* Body Layout */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0px;
             background-color: #000000;
-            background-image: url('media/IMG_20250409_192256HOME.jpg');
+            background-image: url('media/HOME.jpg');
             background-size: 1400px;
             background-position: center right 16%;
             background-repeat: no-repeat;
@@ -46,7 +41,6 @@
             flex-direction: column;
         }
 
-        /* Media Container Styles */
         .media-container {
             text-align: left;
             margin: auto;
@@ -88,7 +82,7 @@
             }
 
             body {
-                background-size: 780px; /* Slight zoom-out horizontally */
+                background-size: 780px;
                 background-position: top left 70%;
                 min-height: 80vh;
             }
@@ -110,24 +104,11 @@
             .media-container .media-subtext {
                 font-size: 1.4em;
             }
-
-            footer {
-                flex-shrink: 0;
-                text-align: center;
-                padding: 20px 0;
-                color: #e0e0e0;
-                width: 100%;
-            }
         }
     </style>
 </head>
 
 <body>
-    <!-- ✅ Hidden img so Google can crawl the background image -->
-    <img src="media/IMG_20250409_192256HOME.jpg" 
-         alt="Logan Bashore - Percussionist | Composer" 
-         style="display:none;" />
-
     <div class="media-container">
         <div class="media-text">Logan Bashore</div>
         <div class="media-subtext">Percussionist | Composer</div>
@@ -145,21 +126,24 @@
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     </header>
 
-    <footer>
-        <div class="name">© 2025 · Logan Bashore</div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/loganbashoremusic/" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/logan.bashore.music/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/@loganbashore" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-        <p class="email"><a href="mailto:contactloganbashore@gmail.com">contactloganbashore@gmail.com</a></p>
-    </footer>
+<div id="footer-placeholder"></div>
+<script>
+(function() {
+    const path = window.location.pathname;
+    const repoBase = "";
+    const pathParts = path.replace(repoBase, "").split("/").filter(p => p !== "" && !p.includes(".html"));
+    let prefix = "../".repeat(pathParts.length);
+    fetch(prefix + "footer.html")
+        .then(res => {
+            if (!res.ok) throw new Error(`Could not load footer: ${res.statusText}`);
+            return res.text();
+        })
+        .then(data => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+        })
+        .catch(err => console.error(err));
+})();
+</script>
 
 <script>
     function toggleMenu() {
