@@ -53,11 +53,24 @@
             text-align: center;
             margin: 10px 0px 70px;
             opacity: 0;
-            transition: opacity 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .main-content.visible {
+        .main-content.fade-in {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        .main-content-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .main-content-text.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .main-content-text h1 {
@@ -225,17 +238,21 @@
         }
     });
 
-    const mainContent = document.querySelector('.main-content');
-    const navImage = document.querySelector('.nav-image');
-
-    if (navImage.complete) {
-        // Already cached/loaded
-        mainContent.classList.add('visible');
-    } else {
-        navImage.addEventListener('load', () => {
-            mainContent.classList.add('visible');
-        });
-    }
+    window.addEventListener('load', () => {
+        const mainText = document.querySelector('.main-content-text');
+        mainText.classList.add('fade-in');
+        
+        const mainContent = document.querySelector('.main-content');
+        const navImage = document.querySelector('.nav-image');
+        
+        if (navImage.complete) {
+            setTimeout(() => mainContent.classList.add('fade-in'), 100);
+        } else {
+            navImage.addEventListener('load', () => {
+                setTimeout(() => mainContent.classList.add('fade-in'), 100);
+            });
+        }
+    });
 </script>
 </body>
 
