@@ -50,7 +50,14 @@
         transform: translateY(0);
         will-change: transform;
 
+        opacity: 0;
+        transition: opacity 2s ease;
+
         z-index: -1;
+    }
+
+    .bg-parallax.show {
+        opacity: 1;
     }
     
     .media-container {
@@ -62,6 +69,8 @@
         align-items: flex-start;
         min-height: 94vh;
         padding-right: 42%;
+        opacity: 1;
+        transition: opacity 0.35s ease;
     }
     
     .media-container .media-text {
@@ -79,7 +88,7 @@
     .media-text,.media-subtext {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity .6s ease,transform .6s ease;
+        transition: opacity 2s ease,transform 2s ease;
     }
     
     .media-text.show,.media-subtext.show {
@@ -117,13 +126,25 @@
     }
     
     .about-text h2 {
+        opacity: 0;
         font-size: 2.5em;
         margin-bottom: 18px;
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease, visibility 0s linear 1s;
     }
     
     .about-text p {
+        opacity: 0;
         line-height: 1.7;
         margin-bottom: 18px;
+        transform: translateY(20px);
+        transition: opacity 1.2s ease, transform 1.2s ease, visibility 0s linear 1.2s;
+    }
+
+    .about-text.fade-in h2, .about-text.fade-in p {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
     }
     
     .media-gallery {
@@ -202,9 +223,9 @@
             text-align: center;
             gap: 25px;
         }
-        
+
         .about-container img {
-            width: 300px;
+            width: 220px;
         }
         
         .media-gallery {
@@ -220,19 +241,6 @@
     }
     </style>
 </head>
-
-<script>
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            const images = document.querySelectorAll('.about-container img');
-            images.forEach((img, index) => {
-                setTimeout(() => {
-                    img.classList.add('fade-in');
-                }, index * 25);
-            });
-        }, 80);
-    });
-</script>
     
 <body>
 
@@ -301,9 +309,21 @@
         });
         
         window.addEventListener('load',function(){
+            document.querySelector('.bg-parallax').classList.add('show');
             document.querySelector('.media-text').classList.add('show');
             document.querySelector('.media-subtext').classList.add('show');
+            
+            if(window.innerWidth <= 1080){
+                const aboutImg = document.querySelector('.about-container img');
+                const aboutText = document.querySelector('.about-text');
+                
+                setTimeout(function(){
+                    aboutImg.classList.add('fade-in');
+                    aboutText.classList.add('fade-in');
+                },200);
+            }
         });
+
 
         let ticking = false;
 
@@ -321,17 +341,29 @@
             if(!ticking){
 
                 window.requestAnimationFrame(function(){
-
                     const bg = document.querySelector('.bg-parallax');
-
+                    const hero = document.querySelector('.media-container');
+                    const aboutImg = document.querySelector('.about-container img');
+                    const aboutText = document.querySelector('.about-text');
+                    
                     let speed = window.innerWidth <= 1080 ? 0.15 : 0.25;
-
+                    
                     bg.style.transform = "translateY(" + (scrollY * -speed) + "px)";
+                    
+                    const fadeDistance = window.innerHeight * 0.25;
+                    const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
+                    
+                    hero.style.opacity = opacity;
+
+                    const rect = aboutImg.getBoundingClientRect();
+                    
+                    if(rect.top < window.innerHeight * 0.8){
+                        aboutImg.classList.add('fade-in');
+                        aboutText.classList.add('fade-in');
+                    }
 
                     ticking = false;
-
                 });
-
                 ticking = true;
             }
 
