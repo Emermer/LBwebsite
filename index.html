@@ -145,9 +145,9 @@
     @media(max-width: 900px)
     { 
         body {
-            background-size: 44vh;
+            background-size: 62vh;
             background-attachment: fixed;
-            background-position: top 55% right 32%;
+            background-position: top 52% right 26%;
         }
 
         .media-container {
@@ -284,9 +284,9 @@
                     const offset = -scrollY * 0.2;
 
                     if(window.innerWidth <= 900){
-                        const mobileY = 55 + (offset / window.innerHeight * 300);
+                        const mobileY = 52 + (offset / window.innerHeight * 300);
                         document.body.style.backgroundPosition =
-                        "right 32% top " + mobileY + "%";
+                        "right 26% top " + mobileY + "%";
                     }
                     else{
                         const desktopY = 50 + (offset / window.innerHeight * 650);
