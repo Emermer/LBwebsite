@@ -147,12 +147,12 @@
         body {
             background-size: 50vh;
             background-attachment: fixed;
-            background-position: top 28% left 15%;
+            background-position: top 24% left 15%;
         }
 
         .media-container {
             min-height: 48vh;
-            padding: 175px 15px 20px 15px;
+            padding: 145px 15px 20px 15px;
             align-items: center;
             text-align: center;
         }
@@ -285,7 +285,7 @@
                     const offset = -scrollY * 0.2;
 
                     if(window.innerWidth <= 900){
-                        const mobileY = 28 + (offset / window.innerHeight * 300);
+                        const mobileY = 24 + (offset / window.innerHeight * 300);
                         document.body.style.backgroundPosition =
                         "left 15% top " + mobileY + "%";
                     }
