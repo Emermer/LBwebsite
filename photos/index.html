@@ -87,7 +87,7 @@
     .media-gallery img {
         width: 100%;
         margin-bottom: 20px;
-        border-radius: 8px;
+        border-radius: 15px;
         display: block;
         object-fit: cover;
         opacity: 0;
@@ -135,46 +135,39 @@
     }
 
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
         .media-gallery {
             column-count: 2;
         }
     }
 
-    @media (max-width: 1080px) {
-        .home-section .media-text,
-        .home-section .media-subtext {
-            position: relative;
-            left: 0;
-            padding-left: 15px;
-            text-align: left;
-        }
-
-        .home-section .media-text {
-            font-size: 3.5em;
-            left: 15%;
-            margin-top: -60px;
-        }
-
-        .home-section .media-subtext {
-            font-size: 1.5em;
-            margin-top: 0;
-            color: #B0BEC5;
-            left: 15%;
-        }
-
+    @media (max-width: 800px) {
         body {
             background-position: calc(50% + 10px) center;
         }
 
         .media-gallery {
-            column-count: 1;
+            column-count: unset;
+            display: flex;
+            flex-direction: column;
         }
-
-        .media-gallery img.large {
-            grid-column: span 2;
-            height: auto;
-        }
+        
+        .sideprofile { order: 0; }
+        .happy { order: 1; }
+        .gmdc { order: 2; }
+        .awakening { order: 3; }
+        .directors { order: 4; }
+        .otherside { order: 5; }
+        .delotto { order: 6; }
+        .awards { order: 7; }
+        .banquet { order: 8; }
+        .i3premieretufflot { order: 9; }
+        .shootmarimba { order: 10; }
+        .i3premierelot { order: 11; }
+        .shootsnare { order: 12; }
+        .tarpontongue { order: 13; }
+        .scream { order: 14; }
+        .ninety { order: 15; }
     }
 </style>
 </head>
@@ -221,22 +214,22 @@
             <a href="../videos" class="tab">Videos</a>
         </h2>
         <div class="media-gallery">
-            <img src="../media/IMG_20250409_192300.jpg">
-            <img src="../media/Pre-premiere-89.jpg">
-            <img src="../media/IMG_20250417_223509.jpg">
-            <img src="../media/December-142.jpg">
-            <img src="../media/lbtonguetsoperehearsal.jpg">
-            <img src="../media/463823374_2838871099623643_4533074778917471468_n_1080.jpg">
-            <img src="../media/393198248_18395394544014417_3592142793651354062_n.jpg">
-            <img src="../media/IMG_20240515_013258_406.jpg">
-            <img src="../media/January-41.jpg">
-            <img src="../media/IMG_20240515_013319_225.jpg">
-            <img src="../media/January-158.jpg">
-            <img src="../media/IMG_20250409_192307~3.jpg">
-            <img src="../media/Finals-edit.jpg">
-            <img src="../media/Lot-21.jpg">
-            <img src="../media/IMG_20241005_235657_535.jpg">
-            <img src="../media/Lot-50.jpg">
+            <img src="../media/IMG_20250409_192300.jpg" class="shootmarimba">
+            <img src="../media/Pre-premiere-89.jpg" class="gmdc">
+            <img src="../media/IMG_20250417_223509.jpg" class="directors">
+            <img src="../media/December-142.jpg" class="ninety">
+            <img src="../media/lbtonguetsoperehearsal.jpg" class="tarpontongue">
+            <img src="../media/463823374_2838871099623643_4533074778917471468_n_1080.jpg" class="awakening">
+            <img src="../media/393198248_18395394544014417_3592142793651354062_n.jpg" class="otherside">
+            <img src="../media/IMG_20240515_013258_406.jpg" class="delotto">
+            <img src="../media/January-41.jpg" class="scream">
+            <img src="../media/IMG_20240515_013319_225.jpg" class="banquet">
+            <img src="../media/January-158.jpg" class="sideprofile">
+            <img src="../media/IMG_20250409_192307~3.jpg" class="shootsnare">
+            <img src="../media/Finals-edit.jpg" class="happy">
+            <img src="../media/Lot-21.jpg" class="i3premierelot">
+            <img src="../media/IMG_20241005_235657_535.jpg" class="awards">
+            <img src="../media/Lot-50.jpg" class="i3premieretufflot">
         </div>
         <h3>Photo credits: TSLCA Media, BDT Photography, Jackson Hendrick, and my mom
         </h3>
