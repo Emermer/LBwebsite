@@ -98,10 +98,9 @@ function initMobileMenu() {
 
     // Hamburger click toggles menu
     hamburger.addEventListener("click", (e) => {
-        e.stopPropagation(); // Prevent bubbling to document click
+        e.stopPropagation(); // Prevent click from bubbling
         const isOpen = navLinks.style.display === "flex";
         navLinks.style.display = isOpen ? "none" : "flex";
-        document.body.style.overflow = isOpen ? "" : "hidden";
     });
 
     // Click anywhere outside nav closes it
@@ -112,7 +111,13 @@ function initMobileMenu() {
             !hamburger.contains(e.target)
         ) {
             navLinks.style.display = "none";
-            document.body.style.overflow = "";
+        }
+    });
+
+    // Close menu on scroll
+    window.addEventListener("scroll", () => {
+        if (navLinks.style.display === "flex") {
+            navLinks.style.display = "none";
         }
     });
 
@@ -120,7 +125,6 @@ function initMobileMenu() {
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1080) {
             navLinks.style.display = "";
-            document.body.style.overflow = "";
         }
     });
 }
