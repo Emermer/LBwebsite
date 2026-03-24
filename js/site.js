@@ -57,6 +57,18 @@ function loadNav() {
         .catch(err => console.error(err));
 }
 
+// Make logo clickable after header loads
+function makeLogoClickable() {
+    const logo = document.querySelector("header .logo");
+    if (!logo) return;
+
+    // Make sure it links to home
+    logo.style.cursor = "pointer";
+    logo.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+}
+
 // Load footer
 function loadFooter() {
     const prefix = getPathPrefix();
@@ -131,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loadNav();
     loadFooter();
     initHeaderScroll();
+
+    setTimeout(makeLogoClickable, 50);
 });
 
 function link(path){
