@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -161,33 +162,8 @@
     </style>
 </head>
 
-<script>
-    window.addEventListener('load', () => {
-        const contactSection = document.querySelector('.contact-section');
-        contactSection.classList.add('fade-in');
-        
-        setTimeout(() => {
-            const images = document.querySelectorAll('.portrait-image');
-            images.forEach((img, index) => {
-                setTimeout(() => {
-                    img.classList.add('fade-in');
-                }, index * 25);
-            });
-        }, 80);
-    });
-</script>
-
 <body>
-    <header>
-        <a href="https://www.loganbashore.com" class="logo">Logan Bashore</a>
-        <div class="nav-links">
-            <a href="https://www.loganbashore.com">Home</a>
-            <a href="../services">Services</a>
-            <a href="../photos">Media</a>
-            <a href="../contact" class="active">Contact</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <div class="contact-section">
         <h1>Contact Me</h1>
@@ -212,52 +188,25 @@
         </div>
     </div>
 
-<div id="footer-placeholder"></div>
-<script>
-(function() {
-    const path = window.location.pathname;
-    const repoBase = "";
-    const pathParts = path.replace(repoBase, "").split("/").filter(p => p !== "" && !p.includes(".html"));
-    let prefix = "../".repeat(pathParts.length);
-    fetch(prefix + "footer.html")
-        .then(res => {
-            if (!res.ok) throw new Error(`Could not load footer: ${res.statusText}`);
-            return res.text();
-        })
-        .then(data => {
-            document.getElementById("footer-placeholder").innerHTML = data;
-        })
-        .catch(err => console.error(err));
-})();
-</script>
+    <div id="footer-placeholder"></div>
 
     <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.innerWidth > 768) {
-                if (window.scrollY > 0) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        const links = document.querySelectorAll('header .nav-links a');
-        links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
+        window.addEventListener('load', () => {
+            const contactSection = document.querySelector('.contact-section');
+            contactSection.classList.add('fade-in');
+        
+            setTimeout(() => {
+                const images = document.querySelectorAll('.portrait-image');
+                images.forEach((img, index) => {
+                    setTimeout(() => {
+                        img.classList.add('fade-in');
+                    }, index * 25);
+                });
+            }, 80);
         });
     </script>
 
-</body>
-
+    <script src="../js/site.js"></script>
+    
+    </body>
 </html>

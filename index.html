@@ -51,7 +51,7 @@
         will-change: transform;
 
         opacity: 0;
-        transition: opacity 2s ease;
+        transition: opacity 1.2s ease;
 
         z-index: -1;
     }
@@ -88,7 +88,7 @@
     .media-text,.media-subtext {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 2s ease,transform 2s ease;
+        transition: opacity 1.2s ease,transform 1.2s ease;
     }
     
     .media-text.show,.media-subtext.show {
@@ -251,16 +251,7 @@
         <div class="media-subtext">Percussionist | Composer | Educator</div>
     </div>
 
-    <header>
-        <a href="https://www.loganbashore.com" class="logo">Logan Bashore</a>
-        <div class="nav-links">
-            <a href="https://www.loganbashore.com" class="active">Home</a>
-            <a href="services">Services</a>
-            <a href="photos">Media</a>
-            <a href="contact">Contact</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </header>
+    <div id="header-placeholder"></div>
         
     <section class="about-section">
         <div class="about-container">
@@ -276,47 +267,17 @@
     </section>
         
     <div id="footer-placeholder"></div>
-        
+
     <script>
-        (function(){
-            const path = window.location.pathname;
-            const repoBase = "";
-            const pathParts = path.replace(repoBase,"").split("/").filter(p => p !== "" && !p.includes(".html"));
-            let prefix = "../".repeat(pathParts.length);
-            
-            fetch(prefix + "footer.html")
-            .then(res => {
-                if(!res.ok)throw new Error(`Could not load footer`);
-                return res.text();
-            })
-            .then(data => {
-                document.getElementById("footer-placeholder").innerHTML = data;
-            })
-            .catch(err => console.error(err));
-        })();
-        
-        function toggleMenu(){
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
-        
-        const links = document.querySelectorAll('header .nav-links a');
-        
-        links.forEach(link => {
-            if(link.href === window.location.href){
-                link.classList.add('active');
-            }
-        });
-        
         window.addEventListener('load',function(){
             document.querySelector('.bg-parallax').classList.add('show');
             document.querySelector('.media-text').classList.add('show');
             document.querySelector('.media-subtext').classList.add('show');
-            
+    
             if(window.innerWidth <= 1080){
                 const aboutImg = document.querySelector('.about-container img');
                 const aboutText = document.querySelector('.about-text');
-                
+        
                 setTimeout(function(){
                     aboutImg.classList.add('fade-in');
                     aboutText.classList.add('fade-in');
@@ -324,50 +285,43 @@
             }
         });
 
-
         let ticking = false;
 
         window.addEventListener('scroll',function(){
-
-            const header = document.querySelector('header');
-            const scrollY = window.scrollY;
-
-            if(scrollY > 0){
-                header.classList.add('scrolled');
-            }else{
-                header.classList.remove('scrolled');
-            }
-
             if(!ticking){
-
                 window.requestAnimationFrame(function(){
+
                     const bg = document.querySelector('.bg-parallax');
                     const hero = document.querySelector('.media-container');
                     const aboutImg = document.querySelector('.about-container img');
                     const aboutText = document.querySelector('.about-text');
-                    
+
+                    if(!bg || !hero) return;
+
                     let speed = window.innerWidth <= 1080 ? 0.15 : 0.25;
-                    
+
                     bg.style.transform = "translateY(" + (scrollY * -speed) + "px)";
-                    
+
                     const fadeDistance = window.innerHeight * 0.25;
                     const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
-                    
+
                     hero.style.opacity = opacity;
 
-                    const rect = aboutImg.getBoundingClientRect();
-                    
-                    if(rect.top < window.innerHeight * 0.8){
-                        aboutImg.classList.add('fade-in');
-                        aboutText.classList.add('fade-in');
-                    }
+                    if(aboutImg){
+                        const rect = aboutImg.getBoundingClientRect();
 
+                        if(rect.top < window.innerHeight * 0.8){
+                            aboutImg.classList.add('fade-in');
+                            aboutText.classList.add('fade-in');
+                        }
+                    }
                     ticking = false;
                 });
                 ticking = true;
             }
-
         });
-    </script> 
+</script>
+<script src="js/site.js"></script>
+
 </body>
 </html>

@@ -9,211 +9,184 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+
     <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #121212;
-        color: #e0e0e0;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        text-align: center;
-    }
-
-    .media-section {
-        padding: 125px 0px 40px;
-        text-align: center;
-        flex: 1;
-        min-height: 70vh;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .media-section h2 {
-        margin-bottom: 40px;
-    }
-
-    .media-section h3 {
-        margin-top: 38px;
-        font-size: 15px;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .media-section h3.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .media-tabs {
-        margin-bottom: 40px;
-        font-weight: 600;
-        font-size: 1.6em;
-        display: inline-flex;
-        gap: 40px;
-        justify-content: center;
-    }
-
-    .media-tabs .tab {
-        color: #e0e0e0;
-        text-decoration: none;
-        padding-bottom: 5px;
-        border-bottom: 3px solid transparent;
-        cursor: pointer;
-    }
-
-    .media-tabs .tab:not(.active):hover {
-        color: #B0BEC5;
-    }
-
-    .media-tabs .tab.active {
-        border-color: #e0e0e0;
-        font-weight: 700;
-    }
-
-    body.transitions-enabled .media-tabs .tab {
-        transition: border-color 0.3s ease, color 0.3s ease;
-    }
-
-    .media-gallery {
-        column-count: 3;
-        column-gap: 20px;
-    }
-
-    .media-gallery img {
-        width: 100%;
-        margin-bottom: 20px;
-        border-radius: 15px;
-        display: block;
-        object-fit: cover;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        pointer-events: none;
-    }
-
-    .media-gallery img.fade-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    #backToTop {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 48px;
-        height: 48px;
-        border: none;
-        border-radius: 50%;
-        background: #e0e0e0;
-        color: #121212;
-        font-size: 1.2em;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        opacity: 0;
-    }
-
-    body.transitions-enabled #backToTop {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    #backToTop.show {
-        display: flex;
-        opacity: 0.9;
-    }
-
-    #backToTop:hover {
-        opacity: 1;
-        transform: translateY(-2px);
-    }
-
-
-    @media (max-width: 1080px) {
-        .media-gallery {
-            column-count: 2;
-        }
-    }
-
-    @media (max-width: 800px) {
         body {
-            background-position: calc(50% + 10px) center;
-        }
-
-        .media-gallery {
-            column-count: unset;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
         }
-        
-        .shootmarimba { order: 0; }
-        .happy { order: 1; }
-        .gmdc { order: 2; }
-        .awakening { order: 3; }
-        .directors { order: 4; }
-        .otherside { order: 5; }
-        .delotto { order: 6; }
-        .awards { order: 7; }
-        .banquet { order: 8; }
-        .ninety { order: 9; }
-        .scream { order: 10; }
-        .i3premierelot { order: 11; }
-        .shootsnare { order: 12; }
-        .tarpontongue { order: 13; }
-        .i3premieretufflot { order: 14; }
-        .sideprofile { order: 15; }
-    }
-</style>
+
+        .media-section {
+            padding: 125px 0px 40px;
+            text-align: center;
+            flex: 1;
+            min-height: 70vh;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .media-section h2 {
+            margin-bottom: 40px;
+        }
+
+        .media-section h3 {
+            margin-top: 38px;
+            font-size: 15px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .media-section h3.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .media-tabs {
+            margin-bottom: 40px;
+            font-weight: 600;
+            font-size: 1.6em;
+            display: inline-flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .media-tabs .tab {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding-bottom: 5px;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .media-tabs .tab:not(.active):hover {
+            color: #B0BEC5;
+        }
+
+        .media-tabs .tab.active {
+            border-color: #e0e0e0;
+            font-weight: 700;
+        }
+
+        body.transitions-enabled .media-tabs .tab {
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .media-gallery {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .media-gallery img {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            display: block;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            pointer-events: none;
+        }
+
+        .media-gallery img.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #121212;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        body.transitions-enabled #backToTop {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #backToTop.show {
+            display: flex;
+            opacity: 0.9;
+        }
+
+        #backToTop:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1080px) {
+            .media-gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            body {
+                background-position: calc(50% + 10px) center;
+            }
+
+            .media-gallery {
+                column-count: unset;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .shootmarimba { order: 0; }
+            .happy { order: 1; }
+            .gmdc { order: 2; }
+            .awakening { order: 3; }
+            .directors { order: 4; }
+            .otherside { order: 5; }
+            .delotto { order: 6; }
+            .awards { order: 7; }
+            .banquet { order: 8; }
+            .ninety { order: 9; }
+            .scream { order: 10; }
+            .i3premierelot { order: 11; }
+            .shootsnare { order: 12; }
+            .tarpontongue { order: 13; }
+            .i3premieretufflot { order: 14; }
+            .sideprofile { order: 15; }
+        }
+    </style>
 </head>
 
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        document.body.classList.add('transitions-enabled');
-    });
-</script>
-
-<script>
-    window.addEventListener('load', () => {
-        const images = document.querySelectorAll('.media-gallery img');
-        const h3 = document.querySelector('.media-section h3');
-        images.forEach((img, index) => {
-            setTimeout(() => {
-                img.classList.add('fade-in');
-                if (index === images.length - 1) {
-                    setTimeout(() => {
-                        h3.classList.add('show');
-                    }, 100);
-                }
-            }, index * 25);
-        });
-    });
-</script>
-
 <body>
-    <header>
-        <a href="https://www.loganbashore.com" class="logo">Logan Bashore</a>
-        <div class="nav-links">
-            <a href="https://www.loganbashore.com">Home</a>
-            <a href="../services">Services</a>
-            <a href="../photos" class="active">Media</a>
-            <a href="../contact">Contact</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </header>
-    </div>
+
+    <!-- HEADER (loaded by site.js) -->
+    <div id="header-placeholder"></div>
 
     <section class="media-section">
+
         <h2 class="media-tabs">
             <a href="../photos" class="tab active">Photos</a>
             <a href="../videos" class="tab">Videos</a>
         </h2>
+
         <div class="media-gallery">
+
             <img src="../media/IMG_20250409_192300.jpg" class="shootmarimba">
             <img src="../media/Pre-premiere-89.jpg" class="gmdc">
             <img src="../media/IMG_20250417_223509.jpg" class="directors">
@@ -230,77 +203,72 @@
             <img src="../media/Lot-21.jpg" class="i3premierelot">
             <img src="../media/IMG_20241005_235657_535.jpg" class="awards">
             <img src="../media/Lot-50.jpg" class="i3premieretufflot">
+
         </div>
-        <h3>Photo credits: TSLCA Media, BDT Photography, Jackson Hendrick, and my mom
+
+        <h3>
+            Photo credits: TSLCA Media, BDT Photography, Jackson Hendrick, and my mom
         </h3>
+
     </section>
 
-<div id="footer-placeholder"></div>
-<script>
-(function() {
-    const path = window.location.pathname;
-    const repoBase = "";
-    const pathParts = path.replace(repoBase, "").split("/").filter(p => p !== "" && !p.includes(".html"));
-    let prefix = "../".repeat(pathParts.length);
-    fetch(prefix + "footer.html")
-        .then(res => {
-            if (!res.ok) throw new Error(`Could not load footer: ${res.statusText}`);
-            return res.text();
-        })
-        .then(data => {
-            document.getElementById("footer-placeholder").innerHTML = data;
-        })
-        .catch(err => console.error(err));
-})();
-</script>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.innerWidth > 768) {
-                if (window.scrollY > 0) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        const links = document.querySelectorAll('header .nav-links a');
-        links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-    </script>
+    <div id="footer-placeholder"></div>
 
     <button id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('transitions-enabled');
+        });
+
+        window.addEventListener('load', () => {
+
+            const images = document.querySelectorAll('.media-gallery img');
+            const h3 = document.querySelector('.media-section h3');
+
+            images.forEach((img, index) => {
+
+                setTimeout(() => {
+
+                    img.classList.add('fade-in');
+
+                    if (index === images.length - 1) {
+                        setTimeout(() => {
+                            h3.classList.add('show');
+                        }, 100);
+                    }
+
+                }, index * 25);
+
+            });
+
+        });
+
         const backToTopBtn = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
+
             if (window.scrollY > 150) {
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
             }
+
         });
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
         });
     </script>
 
-</body>
+    <script src="../js/site.js"></script>
 
+    </body>
 </html>
