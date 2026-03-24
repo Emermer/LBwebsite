@@ -10,7 +10,6 @@ function getPathPrefix() {
     return "../".repeat(pathParts.length);
 }
 
-
 // Highlight active navigation link
 function initNavigation() {
     const links = document.querySelectorAll("header .nav-links a");
@@ -33,13 +32,12 @@ function initNavigation() {
             link.classList.add("active");
         }
 
-        // Activate for current page or any subpage
+        // Special case: Videos subpages highlight Photos
         if (linkPath === "/photos/" && currentPath.startsWith("/videos/")) {
             link.classList.add("active");
         }
     });
 }
-
 
 // Load header
 function loadHeader() {
@@ -55,10 +53,12 @@ function loadHeader() {
 
             // Run navigation highlighting AFTER header loads
             initNavigation();
+
+            // Initialize mobile menu AFTER header exists
+            initMobileMenu();
         })
         .catch(err => console.error(err));
 }
-
 
 // Load footer
 function loadFooter() {
@@ -75,22 +75,9 @@ function loadFooter() {
         .catch(err => console.error(err));
 }
 
-
-// Mobile hamburger
-function toggleMenu() {
-    const navLinks = document.querySelector(".nav-links");
-
-    if (!navLinks) return;
-
-    navLinks.style.display =
-        navLinks.style.display === "flex" ? "none" : "flex";
-}
-
-
 // Header scroll effect
 function initHeaderScroll() {
     window.addEventListener("scroll", function () {
-
         const header = document.querySelector("header");
         if (!header) return;
 
@@ -99,10 +86,44 @@ function initHeaderScroll() {
         } else {
             header.classList.remove("scrolled");
         }
-
     });
 }
 
+// Unified mobile menu functionality
+function initMobileMenu() {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (!hamburger || !navLinks) return;
+
+    // Hamburger click toggles menu
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent bubbling to document click
+        const isOpen = navLinks.style.display === "flex";
+        navLinks.style.display = isOpen ? "none" : "flex";
+        document.body.style.overflow = isOpen ? "" : "hidden";
+    });
+
+    // Click anywhere outside nav closes it
+    document.addEventListener("click", (e) => {
+        if (
+            navLinks.style.display === "flex" &&
+            !navLinks.contains(e.target) &&
+            !hamburger.contains(e.target)
+        ) {
+            navLinks.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    });
+
+    // Optional: close menu when resizing to desktop
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1080) {
+            navLinks.style.display = "";
+            document.body.style.overflow = "";
+        }
+    });
+}
 
 // Initialize everything
 document.addEventListener("DOMContentLoaded", function () {
