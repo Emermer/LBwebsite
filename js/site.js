@@ -39,22 +39,19 @@ function initNavigation() {
     });
 }
 
-// Load header
-function loadHeader() {
+// Load header navigation
+function loadNav() {
     const prefix = getPathPrefix();
 
-    fetch(prefix + "header.html")
-        .then(res => {
-            if (!res.ok) throw new Error("Could not load header");
-            return res.text();
-        })
+    fetch(prefix + "nav.html")
+        .then(res => res.text())
         .then(data => {
-            document.getElementById("header-placeholder").innerHTML = data;
+            const nav = document.getElementById("nav-placeholder");
+            nav.innerHTML = data;
 
-            // Run navigation highlighting AFTER header loads
+            nav.classList.add("nav-visible");
+
             initNavigation();
-
-            // Initialize mobile menu AFTER header exists
             initMobileMenu();
         })
         .catch(err => console.error(err));
@@ -131,7 +128,7 @@ function initMobileMenu() {
 
 // Initialize everything
 document.addEventListener("DOMContentLoaded", function () {
-    loadHeader();
+    loadNav();
     loadFooter();
     initHeaderScroll();
 });

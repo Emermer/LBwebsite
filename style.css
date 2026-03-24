@@ -7,21 +7,24 @@
 
 /* Header Styles */
 header {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
     padding: 20px 8px;
+    height: 89px;
+    box-sizing: border-box;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: padding 0.3s;
+    transition: all 0.3s ease;
 }
 
 header.scrolled {
-    padding: 10px 8px;  /* Increased padding when scrolled */
+    padding: 10px 8px;
+    height: 74px;
 }
 
 header .logo {
@@ -69,6 +72,18 @@ header .nav-links a.active::after {
     height: 2px;
     background-color: #e0e0e0;
     z-index: 105;
+}
+
+#nav-placeholder {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#nav-placeholder.nav-visible {
+    opacity: 1;
 }
 
 header .hamburger {
@@ -162,15 +177,17 @@ footer .email a:hover {
 /* Responsive Styles */
 @media (max-width: 1080px) {
     header {
-        padding: 30px 8px;  /* Larger header padding on mobile */
+        padding: 30px 8px;
+        height: 79px;
     }
 
     header.scrolled {
-        padding: 28px 8px;  /* Larger header padding on mobile */
+        padding: 28px 8px;
+        height: 64px;
     }
 
     header .logo {
-        font-size: 1.6em;  /* Slightly reduced font size for logo on mobile */
+        font-size: 1.6em;
     }
 
     header .nav-links {
