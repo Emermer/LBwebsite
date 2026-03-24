@@ -37,22 +37,23 @@
             margin-bottom: 40px;
         }
 
-        .media-section h3 {
-            margin-top: 38px;
+        .credit {
+            margin-top: 48px;
+            font-weight: 800;
             font-size: 15px;
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .media-section h3.show {
+        .credit.show {
             opacity: 1;
             transform: translateY(0);
         }
 
         .media-tabs {
             margin-bottom: 40px;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 1.6em;
             display: inline-flex;
             gap: 40px;
@@ -153,21 +154,26 @@
                 flex-direction: column;
             }
 
+            .credit {
+                margin-top: 25px;
+                font-size: 5px;
+            }
+
             .shootmarimba { order: 0; }
             .happy { order: 3; }
             .perfect { order: 1; }
             .awakening { order: 2; }
             .directors { order: 4; }
-            .otherside { order: 6; }
+            .otherside { order: 11; }
             .delotto { order: 7; }
             .banquet { order: 9; }
-            .halves { order: 5; }
+            .halves { order: 10; }
             .snarebreak { order: 8; }
-            .i3premierelot { order: 10; }
-            .yearn { order: 11; }
-            .tarpontongue { order: 12; }
-            .i3premieretufflot { order: 13; }
-            .sideprofile { order: 14; }
+            .i3premierelot { order: 5; }
+            .yearn { order: 6; }
+            .tarpontongue { order: 13; }
+            .i3premieretufflot { order: 14; }
+            .sideprofile { order: 12; }
         }
     </style>
 </head>
@@ -198,8 +204,8 @@
             <img src="../media/Lot-17.jpg" class="halves">
             <img src="../media/lbtonguetsoperehearsal.jpg" class="tarpontongue">
             <img src="../media/463823374_2838871099623643_4533074778917471468_n_1080.jpg" class="awakening">
-            <img src="../media/393198248_18395394544014417_3592142793651354062_n.jpg" class="otherside">
             <img src="../media/IMG_20250417_223509.jpg" class="directors">
+            <img src="../media/393198248_18395394544014417_3592142793651354062_n.jpg" class="otherside">
             <img src="../media/Lot-50.jpg" class="i3premieretufflot">
             <img src="../media/Show-30.jpg" class="snarebreak">
             <img src="../media/Show-5.jpg" class="yearn">
@@ -210,9 +216,7 @@
 
         </div>
 
-        <h3>
-            Photo credits: TSLCA Media, BDT Photography, Jackson Hendrick, and my mom
-        </h3>
+        <div class="credit">Photo credits: BDT Photography, TSLCA Media, Jackson Hendrick, and my mom</div>
 
     </section>
 
@@ -230,7 +234,7 @@
         window.addEventListener('load', () => {
 
             const images = document.querySelectorAll('.media-gallery img');
-            const h3 = document.querySelector('.media-section h3');
+            const credit = document.querySelector('.credit');
 
             images.forEach((img, index) => {
 
@@ -240,7 +244,7 @@
 
                     if (index === images.length - 1) {
                         setTimeout(() => {
-                            h3.classList.add('show');
+                            credit.classList.add('show');
                         }, 100);
                     }
 
