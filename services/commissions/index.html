@@ -225,10 +225,16 @@
         }
 
         @media (max-width: 1080px) {
+            body.nav-open .back-button {
+                display: none;
+                opacity: 0;
+                pointer-events: none;
+            }
+
             .back-button {
                 padding: 2px 12px;
                 top: 90px;
-                left: 10px
+                left: 10px;
             }
 
             .back-button.fixed {
