@@ -80,10 +80,15 @@ header .nav-links a.active::after {
     flex-grow: 1;
     display: flex;
     justify-content: center;
+    pointer-events: none;
 }
 
 #nav-placeholder.nav-visible {
     opacity: 1;
+}
+
+#nav-placeholder .nav-links a {
+    pointer-events: auto;
 }
 
 header .hamburger {
