@@ -32,8 +32,8 @@ function initNavigation() {
             link.classList.add("active");
         }
 
-        // Special case: Videos subpages highlight Photos
-        if (linkPath === "/photos/" && currentPath.startsWith("/videos/")) {
+        // Special case: Photos subpages highlight Videos
+        if (linkPath === "/videos/" && currentPath.startsWith("/photos/")) {
             link.classList.add("active");
         }
     });
