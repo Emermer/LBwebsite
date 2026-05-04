@@ -71,8 +71,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: clamp(20px, 3vw, 40px);
+            margin-bottom: clamp(30px, 5vw, 60px);
             text-align: left;
         }
 
@@ -83,7 +83,8 @@
 
         /* text box */
         .media-gallery .media-text {
-            max-width: 500px;
+            max-width: clamp(280px, 35vw, 500px);
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
             line-height: 1.6;
             color: #cfcfcf;
         }
@@ -91,11 +92,11 @@
         /* divider between galleries */
         .media-gallery + .media-gallery {
             border-top: 2px solid #1c1c1c;
-            padding-top: 60px;
+            padding-top: clamp(30px, 5vw, 60px);
         }
 
         .video-wrapper {
-            width: 600px;
+            width: clamp(300px, 45vw, 600px);
             max-width: 100%;
             flex-shrink: 0;
         }
@@ -227,7 +228,7 @@
             <div class="media-text">
                 <h3>UNDERTALE Cover - Luke Pickman</h3>
                 <p>
-                    Super stoked to have been one of 600+ musicians in Luke Pickman's Worldwide Orchestra as a multi-instrumentalist, performing the main theme from Undertale.
+                    Super stoked to have been one of 600+ musicians in Luke Pickman's Worldwide Orchestra as a multi-instrumentalist, performing the main theme from UNDERTALE.
                 </p>
             </div>
         </div>

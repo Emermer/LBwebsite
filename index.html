@@ -68,19 +68,19 @@
         justify-content: center;
         align-items: flex-start;
         min-height: 94vh;
-        padding-right: 42%;
+        padding-right: clamp(20%, 38vw, 42%);
         opacity: 1;
         transition: opacity 0.35s ease;
     }
     
     .media-container .media-text {
-        font-size: 4em;
+        font-size: clamp(2.2rem, 4vw, 4rem);
         font-weight: bold;
         text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
     }
     
     .media-container .media-subtext {
-        font-size: 1.6em;
+        font-size: clamp(0.9rem, 1.5vw, 1.6rem);
         text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
         padding-left: 2.1%;
     }
@@ -104,12 +104,12 @@
     
     .about-container {
         display: flex;
-        gap: 45px;
+        gap: clamp(20px, 3vw, 45px);
         align-items: flex-start;
     }
     
     .about-container img {
-        width: 350px;
+        width: clamp(220px, 28vw, 350px);
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         opacity: 0;
@@ -134,7 +134,7 @@
     }
     
     .about-text p {
-        font-size: 1em;
+        font-size: clamp(0.9rem, 1.1vw, 1rem);
         opacity: 0;
         line-height: 1.7;
         margin-bottom: 18px;
