@@ -15,25 +15,41 @@ function initNavigation() {
     const links = document.querySelectorAll("header .nav-links a");
     const currentPath = window.location.pathname;
 
+    const isMediaPage =
+        currentPath.startsWith("/videos/") ||
+        currentPath.startsWith("/photos/");
+
+    links.forEach(link => link.classList.remove("active"));
+
     links.forEach(link => {
         const linkPath = new URL(link.href).pathname;
 
-        // Homepage link
-        if (currentPath === "/" && linkPath === "/") {
+        // HOME FIX (must be first and strict)
+        if (linkPath === "/" && currentPath === "/") {
             link.classList.add("active");
             return;
         }
 
-        // Skip the homepage link for subpage matching
-        if (linkPath === "/") return;
-
-        // Activate for current page or any subpage
-        if (currentPath === linkPath || currentPath.startsWith(linkPath)) {
-            link.classList.add("active");
+        // Never allow Home to activate on other pages
+        if (linkPath === "/") {
+            return;
         }
 
-        // Special case: Photos subpages highlight Videos
-        if (linkPath === "/videos/" && currentPath.startsWith("/photos/")) {
+        // MEDIA GROUP LOGIC
+        if (link.classList.contains("dropdown-toggle")) {
+            if (isMediaPage) {
+                link.classList.add("active");
+            }
+            return;
+        }
+
+        // Prevent Videos/Photos from affecting top nav active state
+        if (linkPath === "/videos/" || linkPath === "/photos/") {
+            return;
+        }
+
+        // Normal page matching
+        if (currentPath === linkPath || currentPath.startsWith(linkPath)) {
             link.classList.add("active");
         }
     });
@@ -86,6 +102,12 @@ function initHeaderScroll() {
     });
 }
 
+/* ADD THIS RIGHT HERE — GLOBAL HELPER */
+function closeAllNavStates() {
+    document.querySelectorAll(".dropdown.open")
+        .forEach(d => d.classList.remove("open"));
+}
+
 // Unified mobile menu functionality
 function initMobileMenu() {
     const hamburger = document.querySelector(".hamburger");
@@ -102,6 +124,7 @@ hamburger.addEventListener("click", (e) => {
     if (isOpen) {
         navLinks.style.display = "none";
         document.body.classList.remove("nav-open");
+        closeAllNavStates();
     } else {
         navLinks.style.display = "flex";
         document.body.classList.add("nav-open");
@@ -117,6 +140,7 @@ hamburger.addEventListener("click", (e) => {
         ) {
             navLinks.style.display = "none";
             document.body.classList.remove("nav-open");
+            closeAllNavStates();
         }
     });
 
@@ -125,6 +149,7 @@ hamburger.addEventListener("click", (e) => {
         if (navLinks.style.display === "flex") {
             navLinks.style.display = "none";
             document.body.classList.remove("nav-open");
+            closeAllNavStates();
         }
     });
 
@@ -133,9 +158,32 @@ hamburger.addEventListener("click", (e) => {
         if (window.innerWidth > 1080) {
             navLinks.style.display = "";
             document.body.classList.remove("nav-open");
+            closeAllNavStates();
         }
     });
 }
+
+document.addEventListener("click", (e) => {
+
+    const toggle = e.target.closest(".dropdown-toggle");
+    const dropdown = e.target.closest(".dropdown");
+
+    // If clicking toggle → toggle instantly
+    if (toggle && window.innerWidth <= 1080) {
+        e.preventDefault();
+
+        const parent = toggle.closest(".dropdown");
+        parent.classList.toggle("open");
+
+        return;
+    }
+
+    // If clicking outside → close instantly
+    if (!dropdown) {
+        document.querySelectorAll(".dropdown.open")
+            .forEach(d => d.classList.remove("open"));
+    }
+});
 
 // Initialize everything
 document.addEventListener("DOMContentLoaded", function () {
