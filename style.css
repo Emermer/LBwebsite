@@ -104,18 +104,21 @@ header .hamburger {
 
 .dropdown {
     position: relative;
+    padding-bottom: 4px;
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: rgba(0,0,0,0.7);
     flex-direction: column;
     min-width: 180px;
-    align-items: stretch;
-    text-align: left;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1000;
 }
 
 .dropdown-menu a {
@@ -125,6 +128,8 @@ header .hamburger {
     white-space: nowrap;
     color: #e0e0e0;
     text-decoration: none;
+    position: relative;
+    z-index: 2;
 }
 
 .dropdown-menu a:hover {
@@ -139,6 +144,9 @@ header .hamburger {
 .dropdown:hover .dropdown-menu,
 .dropdown.open .dropdown-menu {
     margin-top: 2px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .arrow {
@@ -270,10 +278,20 @@ footer .email a:hover {
         background: rgba(0,0,0,0);
         position: static;
         display: none;
+        pointer-events: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
     }
 
     .dropdown.open .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
         display: flex;
+        pointer-events: auto;
     }
 
     footer {

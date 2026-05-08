@@ -164,18 +164,25 @@ hamburger.addEventListener("click", (e) => {
 }
 
 document.addEventListener("click", (e) => {
-
     const toggle = e.target.closest(".dropdown-toggle");
-    const dropdown = e.target.closest(".dropdown");
 
-    // If clicking toggle → toggle instantly
-    if (toggle && window.innerWidth <= 1080) {
-        e.preventDefault();
+    if (!toggle) return;
 
-        const parent = toggle.closest(".dropdown");
-        parent.classList.toggle("open");
+    if (window.innerWidth > 1080) return;
 
-        return;
+    e.preventDefault();
+
+    const dropdown = toggle.closest(".dropdown");
+
+    const isOpen = dropdown.classList.contains("open");
+
+    // close all others first (prevents sticky state bugs)
+    document.querySelectorAll(".dropdown.open")
+        .forEach(d => d.classList.remove("open"));
+
+    // reopen ONLY if it was closed
+    if (!isOpen) {
+        dropdown.classList.add("open");
     }
 
     // If clicking outside → close instantly
