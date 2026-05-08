@@ -103,6 +103,7 @@ header .hamburger {
 }
 
 .dropdown {
+    display: inline-block;
     position: relative;
     padding-bottom: 4px;
 }
@@ -137,8 +138,15 @@ header .hamburger {
     color: #B0BEC5;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: flex;
+.dropdown-toggle {
+    display: inline-block;
+}
+
+.dropdown-toggle:hover + .dropdown-menu,
+.dropdown.open .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .dropdown:hover .dropdown-menu,
