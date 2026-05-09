@@ -110,11 +110,12 @@ header .hamburger {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 8px);
+    font-size: 0.9em;
     left: 0;
     background: rgba(0,0,0,0.7);
     flex-direction: column;
-    min-width: 180px;
+    min-width: 9em;
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
@@ -263,7 +264,7 @@ footer .email a:hover {
     }
 
     header .nav-links {
-        display: none;
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -271,6 +272,18 @@ footer .email a:hover {
         background: rgba(0, 0, 0, 0.7);
         width: 100%;
         padding-bottom: 40px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease;
+    }
+
+    header .nav-links.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 
     header .nav-links a {
@@ -285,8 +298,18 @@ footer .email a:hover {
     .dropdown-menu {
         background: rgba(0,0,0,0);
         position: static;
-        display: none;
+        display: flex;
+        min-width: 6em;
+        flex-direction: column;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-8px);
         pointer-events: none;
+        transition:
+            max-height 0.25s ease,
+            opacity 0.2s ease,
+            transform 0.2s ease;
     }
 
     .dropdown:hover .dropdown-menu {
@@ -296,9 +319,9 @@ footer .email a:hover {
     }
 
     .dropdown.open .dropdown-menu {
+        max-height: 200px;
         opacity: 1;
         transform: translateY(0);
-        display: flex;
         pointer-events: auto;
     }
 

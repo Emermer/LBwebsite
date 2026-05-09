@@ -317,7 +317,7 @@
 
                     bg.style.transform = "translateY(" + (scrollY * -speed) + "px)";
 
-                    const fadeDistance = window.innerHeight * 0.25;
+                    const fadeDistance = window.innerWidth <= 1080 ? window.innerHeight * 0.175 : window.innerHeight * 0.35;
                     const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
 
                     hero.style.opacity = opacity;
@@ -325,7 +325,8 @@
                     if(aboutImg){
                         const rect = aboutImg.getBoundingClientRect();
 
-                        if(rect.top < window.innerHeight * 0.8){
+                        const fadeTrigger = window.innerWidth <= 1080 ? 1 : 0.9;
+                        if(rect.top < window.innerHeight * fadeTrigger){
                             aboutImg.classList.add('fade-in');
                             aboutText.classList.add('fade-in');
                         }

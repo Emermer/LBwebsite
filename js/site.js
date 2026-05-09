@@ -119,14 +119,12 @@ function initMobileMenu() {
 hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
 
-    const isOpen = navLinks.style.display === "flex";
+    navLinks.classList.toggle("open");
 
-    if (isOpen) {
-        navLinks.style.display = "none";
-        document.body.classList.remove("nav-open");
+    if (!navLinks.classList.contains("open")) {
         closeAllNavStates();
+        document.body.classList.remove("nav-open");
     } else {
-        navLinks.style.display = "flex";
         document.body.classList.add("nav-open");
     }
 });
@@ -134,11 +132,11 @@ hamburger.addEventListener("click", (e) => {
     // Click anywhere outside nav closes it
     document.addEventListener("click", (e) => {
         if (
-            navLinks.style.display === "flex" &&
+            navLinks.classList.contains("open") &&
             !navLinks.contains(e.target) &&
             !hamburger.contains(e.target)
         ) {
-            navLinks.style.display = "none";
+            navLinks.classList.remove("open")
             document.body.classList.remove("nav-open");
             closeAllNavStates();
         }
@@ -146,8 +144,8 @@ hamburger.addEventListener("click", (e) => {
 
     // Close menu on scroll
     window.addEventListener("scroll", () => {
-        if (navLinks.style.display === "flex") {
-            navLinks.style.display = "none";
+        if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
             document.body.classList.remove("nav-open");
             closeAllNavStates();
         }
@@ -156,7 +154,7 @@ hamburger.addEventListener("click", (e) => {
     // Optional: close menu when resizing to desktop
     window.addEventListener("resize", () => {
         if (window.innerWidth > 1080) {
-            navLinks.style.display = "";
+            navLinks.classList.remove("open");
             document.body.classList.remove("nav-open");
             closeAllNavStates();
         }
