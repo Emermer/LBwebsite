@@ -313,7 +313,7 @@
 
                     if(!bg || !hero) return;
 
-                    let speed = window.innerWidth <= 1080 ? 0.15 : 0.25;
+                    let speed = window.innerWidth <= 1080 ? 0 : 0.25;
 
                     bg.style.transform = "translateY(" + (scrollY * -speed) + "px)";
 
