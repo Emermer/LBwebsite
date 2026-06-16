@@ -332,16 +332,24 @@ footer .email a:hover {
 
     footer {
         flex-direction: column;
+        flex-shrink: 0;
         text-align: center;
-        padding: 20px;
+        padding: 20px 0;
+        color: #e0e0e0;
+        width: 100%;
     }
 
     footer .name,
     footer .social-links,
     footer .email {
+        font-size: 0.5em;
         margin: 15px 0;
         padding: 0;
         flex: none;
+    }
+
+    footer .social-links {
+        font-size: 1em;
     }
 
     /* Center the media text and subtext on mobile and adjust position */
@@ -356,13 +364,5 @@ footer .email a:hover {
         text-align: center;
         margin: 0 auto;
         padding: 0 15px;
-    }
-
-    footer {
-        flex-shrink: 0;
-        text-align: center;
-        padding: 20px 0;
-        color: #e0e0e0;
-        width: 100%;
     }
 }
