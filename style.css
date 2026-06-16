@@ -342,14 +342,9 @@ footer .email a:hover {
     footer .name,
     footer .social-links,
     footer .email {
-        font-size: 1em;
         margin: 15px 0;
         padding: 0;
         flex: none;
-    }
-
-    footer .social-links {
-        font-size: 1em;
     }
 
     /* Center the media text and subtext on mobile and adjust position */
